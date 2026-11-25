@@ -10,10 +10,10 @@ export const FX = {
 export const T0: number = FX.books.BTC.time + 500
 const res = (body: unknown, status = 200) => ({ ok: status < 400, status, json: async () => body, text: async () => JSON.stringify(body) })
 
-export interface FakeOpts { failMainnet?: 'timeout' | 'http500' | null; failCg?: number | null; testnetExchange?: (body: any) => unknown; testnetInfo?: (body: any) => unknown; calls?: { main: number; test: number; cg: number; exchange: any[] } }
+export interface FakeOpts { failMainnet?: 'timeout' | 'http500' | null; failCg?: number | null; testnetExchange?: (body: any) => unknown; testnetInfo?: (body: any) => unknown; calls?: { main: number; test: number; cg: number; exchange: any[] }; bookTime?: () => number }
 export function fakes(o: FakeOpts = {}) {
   const calls = o.calls ?? { main: 0, test: 0, cg: 0, exchange: [] as any[] }
-  const book = (coin: string, now?: number) => ({ ...(FX.books[coin] ?? FX.books.BTC), coin, time: now ?? FX.books.BTC.time })
+  const book = (coin: string, now?: number) => ({ ...(FX.books[coin] ?? FX.books.BTC), coin, time: now ?? o.bookTime?.() ?? FX.books.BTC.time })
   const fetchMainnet = async (_url: string, init: any) => {
     calls.main++
     if (o.failMainnet === 'http500') return res({ error: 'x' }, 500)

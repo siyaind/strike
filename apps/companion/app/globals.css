@@ -1,0 +1,34 @@
+@import "tailwindcss";
+
+@theme {
+  --color-obsidian: #0a0b0d;
+  --color-onyx: #111317;
+  --color-slate: #1a1d23;
+  --color-line: #262a31;
+  --color-bone: #e8e6df;
+  --color-ash: #8b8a85;
+  --color-lime: #c6ff3d;
+  --color-mint: #4dffb0;
+  --color-ember: #ff6b4a;
+  --color-amber: #ffc94a;
+  --font-display: var(--font-serif), ui-serif, Georgia, serif;
+  --font-sans: var(--font-sans-var), ui-sans-serif, system-ui, sans-serif;
+  --font-mono: var(--font-mono-var), ui-monospace, monospace;
+}
+
+html { background: var(--color-obsidian); color: var(--color-bone); }
+body { font-family: var(--font-sans); -webkit-font-smoothing: antialiased; }
+::selection { background: var(--color-lime); color: var(--color-obsidian); }
+.grain { background-image: radial-gradient(circle at 20% 0%, rgba(198,255,61,.07), transparent 40%), radial-gradient(circle at 100% 30%, rgba(77,255,176,.05), transparent 35%); }
+.num { font-family: var(--font-mono); font-variant-numeric: tabular-nums; }
+.card { background: var(--color-onyx); border: 1px solid var(--color-line); border-radius: 14px; }
+.kicker { font-family: var(--font-mono); font-size: 11px; letter-spacing: .14em; text-transform: uppercase; color: var(--color-ash); }
+.btn { display: inline-flex; align-items: center; gap: .5rem; border-radius: 999px; padding: .55rem 1rem; font-weight: 600; font-size: 14px; transition: transform .12s ease, background .12s ease; }
+.btn:active { transform: translateY(1px); }
+.btn-lime { background: var(--color-lime); color: var(--color-obsidian); }
+.btn-lime:hover { background: #d6ff70; }
+.btn-ghost { border: 1px solid var(--color-line); color: var(--color-bone); }
+.btn-ghost:hover { border-color: var(--color-lime); color: var(--color-lime); }
+.btn:disabled { opacity: .4; cursor: not-allowed; }
+input, select { background: var(--color-slate); border: 1px solid var(--color-line); border-radius: 10px; padding: .5rem .75rem; color: var(--color-bone); }
+input:focus, select:focus, button:focus-visible, a:focus-visible { outline: 2px solid var(--color-lime); outline-offset: 2px; }
