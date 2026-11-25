@@ -1,0 +1,1328 @@
+[
+  {
+    "id": 1,
+    "level": "debug",
+    "message": "[vite] connected.",
+    "ts": 1795586522719
+  },
+  {
+    "id": 2,
+    "level": "log",
+    "message": "[EvenAppBridge] Bridge initialized",
+    "ts": 1795586522731
+  },
+  {
+    "id": 3,
+    "level": "log",
+    "message": "[strike] bridge ready",
+    "ts": 1795586522733
+  },
+  {
+    "id": 4,
+    "level": "log",
+    "message": "[Simulator] Flutter Bridge intercepted: evenAppMessage",
+    "ts": 1795586522737
+  },
+  {
+    "id": 5,
+    "level": "log",
+    "message": "[strike] startup result 0",
+    "ts": 1795586522737
+  },
+  {
+    "id": 6,
+    "level": "log",
+    "message": "[Simulator] Flutter Bridge intercepted: evenAppMessage",
+    "ts": 1795586522741
+  },
+  {
+    "id": 7,
+    "level": "log",
+    "message": "[Simulator] Flutter Bridge intercepted: evenAppMessage",
+    "ts": 1795586522777
+  },
+  {
+    "id": 8,
+    "level": "log",
+    "message": "[Simulator] Flutter Bridge intercepted: evenAppMessage",
+    "ts": 1795586522799
+  },
+  {
+    "id": 9,
+    "level": "log",
+    "message": "[Simulator] Flutter Bridge intercepted: evenAppMessage",
+    "ts": 1795586522801
+  },
+  {
+    "id": 10,
+    "level": "log",
+    "message": "[strike] render STRIKE G2 | Hyperliquid instruments {\"renders\":2,\"transfers\":2,\"suppressed\":0,\"failures\":0,\"lastTransferMs\":2,\"avgTransferMs\":3,\"lastError\":null}",
+    "ts": 1795586522827
+  },
+  {
+    "id": 11,
+    "level": "log",
+    "message": "[strike] started http://localhost:8899",
+    "ts": 1795586522827
+  },
+  {
+    "id": 12,
+    "level": "log",
+    "message": "[EvenAppBridge] EvenHub event: {\"jsonData\":{\"eventSource\":1},\"sysEvent\":{\"eventSource\":1}}",
+    "ts": 1795586532389
+  },
+  {
+    "id": 13,
+    "level": "log",
+    "message": "[Simulator] Flutter Bridge intercepted: evenAppMessage",
+    "ts": 1795586532389
+  },
+  {
+    "id": 14,
+    "level": "log",
+    "message": "[Simulator] Flutter Bridge intercepted: evenAppMessage",
+    "ts": 1795586532395
+  },
+  {
+    "id": 15,
+    "level": "log",
+    "message": "[Simulator] Flutter Bridge intercepted: evenAppMessage",
+    "ts": 1795586532401
+  },
+  {
+    "id": 16,
+    "level": "log",
+    "message": "[Simulator] Flutter Bridge intercepted: evenAppMessage",
+    "ts": 1795586532403
+  },
+  {
+    "id": 17,
+    "level": "log",
+    "message": "[strike] render STRIKE ... {\"renders\":4,\"transfers\":4,\"suppressed\":0,\"failures\":0,\"lastTransferMs\":2,\"avgTransferMs\":2.75,\"lastError\":null}",
+    "ts": 1795586532408
+  },
+  {
+    "id": 18,
+    "level": "log",
+    "message": "[Simulator] Flutter Bridge intercepted: evenAppMessage",
+    "ts": 1795586534230
+  },
+  {
+    "id": 19,
+    "level": "log",
+    "message": "[Simulator] Flutter Bridge intercepted: evenAppMessage",
+    "ts": 1795586534231
+  },
+  {
+    "id": 20,
+    "level": "log",
+    "message": "[Simulator] Flutter Bridge intercepted: evenAppMessage",
+    "ts": 1795586534240
+  },
+  {
+    "id": 21,
+    "level": "log",
+    "message": "[Simulator] Flutter Bridge intercepted: evenAppMessage",
+    "ts": 1795586534243
+  },
+  {
+    "id": 22,
+    "level": "log",
+    "message": "[strike] render STRIKE HOME [SIMULATED] {\"renders\":6,\"transfers\":6,\"suppressed\":0,\"failures\":0,\"lastTransferMs\":3,\"avgTransferMs\":2.8333333333333335,\"lastError\":null}",
+    "ts": 1795586534247
+  },
+  {
+    "id": 23,
+    "level": "log",
+    "message": "[EvenAppBridge] EvenHub event: {\"jsonData\":{\"eventSource\":1},\"sysEvent\":{\"eventSource\":1}}",
+    "ts": 1795586534621
+  },
+  {
+    "id": 24,
+    "level": "log",
+    "message": "[Simulator] Flutter Bridge intercepted: evenAppMessage",
+    "ts": 1795586534630
+  },
+  {
+    "id": 25,
+    "level": "log",
+    "message": "[Simulator] Flutter Bridge intercepted: evenAppMessage",
+    "ts": 1795586534631
+  },
+  {
+    "id": 26,
+    "level": "log",
+    "message": "[Simulator] Flutter Bridge intercepted: evenAppMessage",
+    "ts": 1795586534641
+  },
+  {
+    "id": 27,
+    "level": "log",
+    "message": "[Simulator] Flutter Bridge intercepted: evenAppMessage",
+    "ts": 1795586534644
+  },
+  {
+    "id": 28,
+    "level": "log",
+    "message": "[strike] render STRIKE RADAR 1/33 LIVE [SIMULATED] {\"renders\":8,\"transfers\":8,\"suppressed\":0,\"failures\":0,\"lastTransferMs\":2,\"avgTransferMs\":2.625,\"lastError\":null}",
+    "ts": 1795586534647
+  },
+  {
+    "id": 29,
+    "level": "log",
+    "message": "[EvenAppBridge] EvenHub event: {\"jsonData\":{\"containerID\":1,\"containerName\":\"evt\",\"eventType\":2},\"textEvent\":{\"containerID\":1,\"containerName\":\"evt\",\"eventType\":2}}",
+    "ts": 1795586535033
+  },
+  {
+    "id": 30,
+    "level": "log",
+    "message": "[Simulator] Flutter Bridge intercepted: evenAppMessage",
+    "ts": 1795586535034
+  },
+  {
+    "id": 31,
+    "level": "log",
+    "message": "[Simulator] Flutter Bridge intercepted: evenAppMessage",
+    "ts": 1795586535036
+  },
+  {
+    "id": 32,
+    "level": "log",
+    "message": "[Simulator] Flutter Bridge intercepted: evenAppMessage",
+    "ts": 1795586535043
+  },
+  {
+    "id": 33,
+    "level": "log",
+    "message": "[Simulator] Flutter Bridge intercepted: evenAppMessage",
+    "ts": 1795586535046
+  },
+  {
+    "id": 34,
+    "level": "log",
+    "message": "[strike] render STRIKE RADAR 2/33 LIVE [SIMULATED] {\"renders\":10,\"transfers\":10,\"suppressed\":0,\"failures\":0,\"lastTransferMs\":2,\"avgTransferMs\":2.5,\"lastError\":null}",
+    "ts": 1795586535049
+  },
+  {
+    "id": 35,
+    "level": "log",
+    "message": "[EvenAppBridge] EvenHub event: {\"jsonData\":{\"containerID\":1,\"containerName\":\"evt\",\"eventType\":2},\"textEvent\":{\"containerID\":1,\"containerName\":\"evt\",\"eventType\":2}}",
+    "ts": 1795586535447
+  },
+  {
+    "id": 36,
+    "level": "log",
+    "message": "[Simulator] Flutter Bridge intercepted: evenAppMessage",
+    "ts": 1795586535447
+  },
+  {
+    "id": 37,
+    "level": "log",
+    "message": "[Simulator] Flutter Bridge intercepted: evenAppMessage",
+    "ts": 1795586535450
+  },
+  {
+    "id": 38,
+    "level": "log",
+    "message": "[Simulator] Flutter Bridge intercepted: evenAppMessage",
+    "ts": 1795586535454
+  },
+  {
+    "id": 39,
+    "level": "log",
+    "message": "[strike] render STRIKE RADAR 3/33 LIVE [SIMULATED] {\"renders\":12,\"transfers\":11,\"suppressed\":1,\"failures\":0,\"lastTransferMs\":3,\"avgTransferMs\":2.5454545454545454,\"lastError\":null}",
+    "ts": 1795586535457
+  },
+  {
+    "id": 40,
+    "level": "log",
+    "message": "[EvenAppBridge] EvenHub event: {\"jsonData\":{\"eventSource\":1},\"sysEvent\":{\"eventSource\":1}}",
+    "ts": 1795586535861
+  },
+  {
+    "id": 41,
+    "level": "log",
+    "message": "[Simulator] Flutter Bridge intercepted: evenAppMessage",
+    "ts": 1795586535866
+  },
+  {
+    "id": 42,
+    "level": "log",
+    "message": "[Simulator] Flutter Bridge intercepted: evenAppMessage",
+    "ts": 1795586535867
+  },
+  {
+    "id": 43,
+    "level": "log",
+    "message": "[Simulator] Flutter Bridge intercepted: evenAppMessage",
+    "ts": 1795586535873
+  },
+  {
+    "id": 44,
+    "level": "log",
+    "message": "[Simulator] Flutter Bridge intercepted: evenAppMessage",
+    "ts": 1795586535875
+  },
+  {
+    "id": 45,
+    "level": "log",
+    "message": "[strike] render STRIKE ORBIT ETH SHORT 5x UNPROTECTED [SIMULATED] {\"renders\":14,\"transfers\":13,\"suppressed\":1,\"failures\":0,\"lastTransferMs\":1,\"avgTransferMs\":2.4615384615384617,\"lastError\":null}",
+    "ts": 1795586535877
+  },
+  {
+    "id": 46,
+    "level": "log",
+    "message": "[EvenAppBridge] EvenHub event: {\"jsonData\":{\"containerID\":1,\"containerName\":\"evt\",\"eventType\":2},\"textEvent\":{\"containerID\":1,\"containerName\":\"evt\",\"eventType\":2}}",
+    "ts": 1795586536273
+  },
+  {
+    "id": 47,
+    "level": "log",
+    "message": "[Simulator] Flutter Bridge intercepted: evenAppMessage",
+    "ts": 1795586536277
+  },
+  {
+    "id": 48,
+    "level": "log",
+    "message": "[Simulator] Flutter Bridge intercepted: evenAppMessage",
+    "ts": 1795586536283
+  },
+  {
+    "id": 49,
+    "level": "log",
+    "message": "[Simulator] Flutter Bridge intercepted: evenAppMessage",
+    "ts": 1795586536285
+  },
+  {
+    "id": 50,
+    "level": "log",
+    "message": "[strike] render STRIKE ORBIT ETH SHORT 5x UNPROTECTED [SIMULATED] {\"renders\":16,\"transfers\":15,\"suppressed\":1,\"failures\":0,\"lastTransferMs\":2,\"avgTransferMs\":2.4,\"lastError\":null}",
+    "ts": 1795586536288
+  },
+  {
+    "id": 51,
+    "level": "log",
+    "message": "[EvenAppBridge] EvenHub event: {\"jsonData\":{\"eventSource\":1},\"sysEvent\":{\"eventSource\":1}}",
+    "ts": 1795586536689
+  },
+  {
+    "id": 52,
+    "level": "log",
+    "message": "[Simulator] Flutter Bridge intercepted: evenAppMessage",
+    "ts": 1795586536694
+  },
+  {
+    "id": 53,
+    "level": "log",
+    "message": "[Simulator] Flutter Bridge intercepted: evenAppMessage",
+    "ts": 1795586536696
+  },
+  {
+    "id": 54,
+    "level": "log",
+    "message": "[Simulator] Flutter Bridge intercepted: evenAppMessage",
+    "ts": 1795586536702
+  },
+  {
+    "id": 55,
+    "level": "log",
+    "message": "[Simulator] Flutter Bridge intercepted: evenAppMessage",
+    "ts": 1795586536704
+  },
+  {
+    "id": 56,
+    "level": "log",
+    "message": "[strike] render STRIKE DNA ETH vs HL universe [SIMULATED] {\"renders\":18,\"transfers\":17,\"suppressed\":1,\"failures\":0,\"lastTransferMs\":1,\"avgTransferMs\":2.3529411764705883,\"lastError\":null}",
+    "ts": 1795586536707
+  },
+  {
+    "id": 57,
+    "level": "log",
+    "message": "[EvenAppBridge] EvenHub event: {\"jsonData\":{\"containerID\":1,\"containerName\":\"evt\",\"eventType\":2},\"textEvent\":{\"containerID\":1,\"containerName\":\"evt\",\"eventType\":2}}",
+    "ts": 1795586537101
+  },
+  {
+    "id": 58,
+    "level": "log",
+    "message": "[Simulator] Flutter Bridge intercepted: evenAppMessage",
+    "ts": 1795586537102
+  },
+  {
+    "id": 59,
+    "level": "log",
+    "message": "[Simulator] Flutter Bridge intercepted: evenAppMessage",
+    "ts": 1795586537106
+  },
+  {
+    "id": 60,
+    "level": "log",
+    "message": "[strike] render STRIKE DNA ETH vs HL universe [SIMULATED] {\"renders\":20,\"transfers\":18,\"suppressed\":2,\"failures\":0,\"lastTransferMs\":3,\"avgTransferMs\":2.388888888888889,\"lastError\":null}",
+    "ts": 1795586537109
+  },
+  {
+    "id": 61,
+    "level": "log",
+    "message": "[EvenAppBridge] EvenHub event: {\"jsonData\":{\"eventSource\":1},\"sysEvent\":{\"eventSource\":1}}",
+    "ts": 1795586537513
+  },
+  {
+    "id": 62,
+    "level": "log",
+    "message": "[Simulator] Flutter Bridge intercepted: evenAppMessage",
+    "ts": 1795586538055
+  },
+  {
+    "id": 63,
+    "level": "log",
+    "message": "[Simulator] Flutter Bridge intercepted: evenAppMessage",
+    "ts": 1795586538057
+  },
+  {
+    "id": 64,
+    "level": "log",
+    "message": "[Simulator] Flutter Bridge intercepted: evenAppMessage",
+    "ts": 1795586538063
+  },
+  {
+    "id": 65,
+    "level": "log",
+    "message": "[Simulator] Flutter Bridge intercepted: evenAppMessage",
+    "ts": 1795586538065
+  },
+  {
+    "id": 66,
+    "level": "log",
+    "message": "[strike] render STRIKE LENS ETH SELL $100 LIVE [SIMULATED] {\"renders\":22,\"transfers\":20,\"suppressed\":2,\"failures\":0,\"lastTransferMs\":2,\"avgTransferMs\":2.35,\"lastError\":null}",
+    "ts": 1795586538068
+  },
+  {
+    "id": 67,
+    "level": "log",
+    "message": "[EvenAppBridge] EvenHub event: {\"jsonData\":{\"containerID\":1,\"containerName\":\"evt\",\"eventType\":2},\"textEvent\":{\"containerID\":1,\"containerName\":\"evt\",\"eventType\":2}}",
+    "ts": 1795586538380
+  },
+  {
+    "id": 68,
+    "level": "log",
+    "message": "[Simulator] Flutter Bridge intercepted: evenAppMessage",
+    "ts": 1795586538384
+  },
+  {
+    "id": 69,
+    "level": "log",
+    "message": "[strike] render STRIKE LENS ETH SELL $250 LIVE [SIMULATED] {\"renders\":24,\"transfers\":20,\"suppressed\":4,\"failures\":0,\"lastTransferMs\":2,\"avgTransferMs\":2.35,\"lastError\":null}",
+    "ts": 1795586538388
+  },
+  {
+    "id": 70,
+    "level": "log",
+    "message": "[EvenAppBridge] EvenHub event: {\"jsonData\":{\"eventSource\":1},\"sysEvent\":{\"eventSource\":1}}",
+    "ts": 1795586538794
+  },
+  {
+    "id": 71,
+    "level": "log",
+    "message": "[Simulator] Flutter Bridge intercepted: evenAppMessage",
+    "ts": 1795586538799
+  },
+  {
+    "id": 72,
+    "level": "log",
+    "message": "[Simulator] Flutter Bridge intercepted: evenAppMessage",
+    "ts": 1795586538800
+  },
+  {
+    "id": 73,
+    "level": "log",
+    "message": "[Simulator] Flutter Bridge intercepted: evenAppMessage",
+    "ts": 1795586538806
+  },
+  {
+    "id": 74,
+    "level": "log",
+    "message": "[Simulator] Flutter Bridge intercepted: evenAppMessage",
+    "ts": 1795586538808
+  },
+  {
+    "id": 75,
+    "level": "log",
+    "message": "[strike] render STRIKE SHADOW ETH INCREASE SHORT $250 3x [SIMULATED] {\"renders\":26,\"transfers\":22,\"suppressed\":4,\"failures\":0,\"lastTransferMs\":2,\"avgTransferMs\":2.3181818181818183,\"lastError\":null}",
+    "ts": 1795586538811
+  },
+  {
+    "id": 76,
+    "level": "log",
+    "message": "[EvenAppBridge] EvenHub event: {\"jsonData\":{\"containerID\":1,\"containerName\":\"evt\",\"eventType\":1},\"textEvent\":{\"containerID\":1,\"containerName\":\"evt\",\"eventType\":1}}",
+    "ts": 1795586539208
+  },
+  {
+    "id": 77,
+    "level": "log",
+    "message": "[Simulator] Flutter Bridge intercepted: evenAppMessage",
+    "ts": 1795586539209
+  },
+  {
+    "id": 78,
+    "level": "log",
+    "message": "[Simulator] Flutter Bridge intercepted: evenAppMessage",
+    "ts": 1795586539213
+  },
+  {
+    "id": 79,
+    "level": "log",
+    "message": "[strike] render STRIKE SHADOW ETH INCREASE SHORT $250 3x [SIMULATED] {\"renders\":28,\"transfers\":23,\"suppressed\":5,\"failures\":0,\"lastTransferMs\":2,\"avgTransferMs\":2.3043478260869565,\"lastError\":null}",
+    "ts": 1795586539216
+  },
+  {
+    "id": 80,
+    "level": "log",
+    "message": "[EvenAppBridge] EvenHub event: {\"jsonData\":{\"containerID\":1,\"containerName\":\"evt\",\"eventType\":1},\"textEvent\":{\"containerID\":1,\"containerName\":\"evt\",\"eventType\":1}}",
+    "ts": 1795586539620
+  },
+  {
+    "id": 81,
+    "level": "log",
+    "message": "[Simulator] Flutter Bridge intercepted: evenAppMessage",
+    "ts": 1795586539621
+  },
+  {
+    "id": 82,
+    "level": "log",
+    "message": "[Simulator] Flutter Bridge intercepted: evenAppMessage",
+    "ts": 1795586539625
+  },
+  {
+    "id": 83,
+    "level": "log",
+    "message": "[strike] render STRIKE SHADOW ETH INCREASE SHORT $250 3x [SIMULATED] {\"renders\":30,\"transfers\":24,\"suppressed\":6,\"failures\":0,\"lastTransferMs\":2,\"avgTransferMs\":2.2916666666666665,\"lastError\":null}",
+    "ts": 1795586539628
+  },
+  {
+    "id": 84,
+    "level": "log",
+    "message": "[EvenAppBridge] EvenHub event: {\"jsonData\":{\"containerID\":1,\"containerName\":\"evt\",\"eventType\":2},\"textEvent\":{\"containerID\":1,\"containerName\":\"evt\",\"eventType\":2}}",
+    "ts": 1795586540034
+  },
+  {
+    "id": 85,
+    "level": "log",
+    "message": "[Simulator] Flutter Bridge intercepted: evenAppMessage",
+    "ts": 1795586540035
+  },
+  {
+    "id": 86,
+    "level": "log",
+    "message": "[Simulator] Flutter Bridge intercepted: evenAppMessage",
+    "ts": 1795586540038
+  },
+  {
+    "id": 87,
+    "level": "log",
+    "message": "[strike] render STRIKE SHADOW ETH INCREASE SHORT $250 3x [SIMULATED] {\"renders\":32,\"transfers\":25,\"suppressed\":7,\"failures\":0,\"lastTransferMs\":2,\"avgTransferMs\":2.28,\"lastError\":null}",
+    "ts": 1795586540041
+  },
+  {
+    "id": 88,
+    "level": "log",
+    "message": "[EvenAppBridge] EvenHub event: {\"jsonData\":{\"containerID\":1,\"containerName\":\"evt\",\"eventType\":2},\"textEvent\":{\"containerID\":1,\"containerName\":\"evt\",\"eventType\":2}}",
+    "ts": 1795586540437
+  },
+  {
+    "id": 89,
+    "level": "log",
+    "message": "[Simulator] Flutter Bridge intercepted: evenAppMessage",
+    "ts": 1795586540438
+  },
+  {
+    "id": 90,
+    "level": "log",
+    "message": "[Simulator] Flutter Bridge intercepted: evenAppMessage",
+    "ts": 1795586540441
+  },
+  {
+    "id": 91,
+    "level": "log",
+    "message": "[strike] render STRIKE SHADOW ETH INCREASE SHORT $250 3x [SIMULATED] {\"renders\":34,\"transfers\":26,\"suppressed\":8,\"failures\":0,\"lastTransferMs\":3,\"avgTransferMs\":2.3076923076923075,\"lastError\":null}",
+    "ts": 1795586540445
+  },
+  {
+    "id": 92,
+    "level": "log",
+    "message": "[EvenAppBridge] EvenHub event: {\"jsonData\":{\"containerID\":1,\"containerName\":\"evt\",\"eventType\":2},\"textEvent\":{\"containerID\":1,\"containerName\":\"evt\",\"eventType\":2}}",
+    "ts": 1795586540841
+  },
+  {
+    "id": 93,
+    "level": "log",
+    "message": "[Simulator] Flutter Bridge intercepted: evenAppMessage",
+    "ts": 1795586540841
+  },
+  {
+    "id": 94,
+    "level": "log",
+    "message": "[Simulator] Flutter Bridge intercepted: evenAppMessage",
+    "ts": 1795586540844
+  },
+  {
+    "id": 95,
+    "level": "log",
+    "message": "[strike] render STRIKE SHADOW ETH INCREASE SHORT $250 3x [SIMULATED] {\"renders\":36,\"transfers\":27,\"suppressed\":9,\"failures\":0,\"lastTransferMs\":2,\"avgTransferMs\":2.2962962962962963,\"lastError\":null}",
+    "ts": 1795586540847
+  },
+  {
+    "id": 96,
+    "level": "log",
+    "message": "[EvenAppBridge] EvenHub event: {\"jsonData\":{\"containerID\":1,\"containerName\":\"evt\",\"eventType\":2},\"textEvent\":{\"containerID\":1,\"containerName\":\"evt\",\"eventType\":2}}",
+    "ts": 1795586541244
+  },
+  {
+    "id": 97,
+    "level": "log",
+    "message": "[Simulator] Flutter Bridge intercepted: evenAppMessage",
+    "ts": 1795586541244
+  },
+  {
+    "id": 98,
+    "level": "log",
+    "message": "[Simulator] Flutter Bridge intercepted: evenAppMessage",
+    "ts": 1795586541247
+  },
+  {
+    "id": 99,
+    "level": "log",
+    "message": "[strike] render STRIKE SHADOW ETH INCREASE SHORT $250 3x [SIMULATED] {\"renders\":38,\"transfers\":28,\"suppressed\":10,\"failures\":0,\"lastTransferMs\":2,\"avgTransferMs\":2.2857142857142856,\"lastError\":null}",
+    "ts": 1795586541250
+  },
+  {
+    "id": 100,
+    "level": "log",
+    "message": "[EvenAppBridge] EvenHub event: {\"jsonData\":{\"containerID\":1,\"containerName\":\"evt\",\"eventType\":2},\"textEvent\":{\"containerID\":1,\"containerName\":\"evt\",\"eventType\":2}}",
+    "ts": 1795586541648
+  },
+  {
+    "id": 101,
+    "level": "log",
+    "message": "[Simulator] Flutter Bridge intercepted: evenAppMessage",
+    "ts": 1795586541648
+  },
+  {
+    "id": 102,
+    "level": "log",
+    "message": "[Simulator] Flutter Bridge intercepted: evenAppMessage",
+    "ts": 1795586541652
+  },
+  {
+    "id": 103,
+    "level": "log",
+    "message": "[strike] render STRIKE SHADOW ETH INCREASE SHORT $250 3x [SIMULATED] {\"renders\":40,\"transfers\":29,\"suppressed\":11,\"failures\":0,\"lastTransferMs\":2,\"avgTransferMs\":2.2758620689655173,\"lastError\":null}",
+    "ts": 1795586541655
+  },
+  {
+    "id": 104,
+    "level": "log",
+    "message": "[EvenAppBridge] EvenHub event: {\"jsonData\":{\"containerID\":1,\"containerName\":\"evt\",\"eventType\":2},\"textEvent\":{\"containerID\":1,\"containerName\":\"evt\",\"eventType\":2}}",
+    "ts": 1795586542050
+  },
+  {
+    "id": 105,
+    "level": "log",
+    "message": "[Simulator] Flutter Bridge intercepted: evenAppMessage",
+    "ts": 1795586542051
+  },
+  {
+    "id": 106,
+    "level": "log",
+    "message": "[Simulator] Flutter Bridge intercepted: evenAppMessage",
+    "ts": 1795586542054
+  },
+  {
+    "id": 107,
+    "level": "log",
+    "message": "[strike] render STRIKE SHADOW ETH INCREASE SHORT $250 3x [SIMULATED] {\"renders\":42,\"transfers\":30,\"suppressed\":12,\"failures\":0,\"lastTransferMs\":3,\"avgTransferMs\":2.3,\"lastError\":null}",
+    "ts": 1795586542057
+  },
+  {
+    "id": 108,
+    "level": "log",
+    "message": "[EvenAppBridge] EvenHub event: {\"jsonData\":{\"containerID\":1,\"containerName\":\"evt\",\"eventType\":2},\"textEvent\":{\"containerID\":1,\"containerName\":\"evt\",\"eventType\":2}}",
+    "ts": 1795586542453
+  },
+  {
+    "id": 109,
+    "level": "log",
+    "message": "[Simulator] Flutter Bridge intercepted: evenAppMessage",
+    "ts": 1795586542454
+  },
+  {
+    "id": 110,
+    "level": "log",
+    "message": "[strike] render STRIKE SHADOW ETH INCREASE SHORT $250 3x [SIMULATED] {\"renders\":44,\"transfers\":30,\"suppressed\":14,\"failures\":0,\"lastTransferMs\":3,\"avgTransferMs\":2.3,\"lastError\":null}",
+    "ts": 1795586542458
+  },
+  {
+    "id": 111,
+    "level": "log",
+    "message": "[EvenAppBridge] EvenHub event: {\"jsonData\":{\"eventSource\":1},\"sysEvent\":{\"eventSource\":1}}",
+    "ts": 1795586542866
+  },
+  {
+    "id": 112,
+    "level": "log",
+    "message": "[Simulator] Flutter Bridge intercepted: evenAppMessage",
+    "ts": 1795586546286
+  },
+  {
+    "id": 113,
+    "level": "log",
+    "message": "[Simulator] Flutter Bridge intercepted: evenAppMessage",
+    "ts": 1795586546288
+  },
+  {
+    "id": 114,
+    "level": "log",
+    "message": "[Simulator] Flutter Bridge intercepted: evenAppMessage",
+    "ts": 1795586546294
+  },
+  {
+    "id": 115,
+    "level": "log",
+    "message": "[Simulator] Flutter Bridge intercepted: evenAppMessage",
+    "ts": 1795586546296
+  },
+  {
+    "id": 116,
+    "level": "log",
+    "message": "[strike] render STRIKE PREVIEW expires 30s [SIMULATED] {\"renders\":46,\"transfers\":32,\"suppressed\":14,\"failures\":0,\"lastTransferMs\":2,\"avgTransferMs\":2.28125,\"lastError\":null}",
+    "ts": 1795586546298
+  },
+  {
+    "id": 117,
+    "level": "log",
+    "message": "[EvenAppBridge] EvenHub event: {\"jsonData\":{\"eventSource\":1},\"sysEvent\":{\"eventSource\":1}}",
+    "ts": 1795586546605
+  },
+  {
+    "id": 118,
+    "level": "log",
+    "message": "[Simulator] Flutter Bridge intercepted: evenAppMessage",
+    "ts": 1795586546606
+  },
+  {
+    "id": 119,
+    "level": "log",
+    "message": "[Simulator] Flutter Bridge intercepted: evenAppMessage",
+    "ts": 1795586546609
+  },
+  {
+    "id": 120,
+    "level": "log",
+    "message": "[Simulator] Flutter Bridge intercepted: evenAppMessage",
+    "ts": 1795586546615
+  },
+  {
+    "id": 121,
+    "level": "log",
+    "message": "[Simulator] Flutter Bridge intercepted: evenAppMessage",
+    "ts": 1795586546617
+  },
+  {
+    "id": 122,
+    "level": "log",
+    "message": "[strike] render STRIKE SHADOW ETH INCREASE SHORT $250 3x [SIMULATED] {\"renders\":48,\"transfers\":34,\"suppressed\":14,\"failures\":0,\"lastTransferMs\":2,\"avgTransferMs\":2.2941176470588234,\"lastError\":null}",
+    "ts": 1795586546620
+  },
+  {
+    "id": 123,
+    "level": "log",
+    "message": "[EvenAppBridge] EvenHub event: {\"jsonData\":{\"eventSource\":1},\"sysEvent\":{\"eventSource\":1}}",
+    "ts": 1795586547018
+  },
+  {
+    "id": 124,
+    "level": "log",
+    "message": "[Simulator] Flutter Bridge intercepted: evenAppMessage",
+    "ts": 1795586547650
+  },
+  {
+    "id": 125,
+    "level": "log",
+    "message": "[Simulator] Flutter Bridge intercepted: evenAppMessage",
+    "ts": 1795586547652
+  },
+  {
+    "id": 126,
+    "level": "log",
+    "message": "[Simulator] Flutter Bridge intercepted: evenAppMessage",
+    "ts": 1795586547658
+  },
+  {
+    "id": 127,
+    "level": "log",
+    "message": "[Simulator] Flutter Bridge intercepted: evenAppMessage",
+    "ts": 1795586547660
+  },
+  {
+    "id": 128,
+    "level": "log",
+    "message": "[strike] render STRIKE PREVIEW expires 30s [SIMULATED] {\"renders\":50,\"transfers\":36,\"suppressed\":14,\"failures\":0,\"lastTransferMs\":1,\"avgTransferMs\":2.2777777777777777,\"lastError\":null}",
+    "ts": 1795586547663
+  },
+  {
+    "id": 129,
+    "level": "log",
+    "message": "[EvenAppBridge] EvenHub event: {\"jsonData\":{\"containerID\":1,\"containerName\":\"evt\",\"eventType\":2},\"textEvent\":{\"containerID\":1,\"containerName\":\"evt\",\"eventType\":2}}",
+    "ts": 1795586548036
+  },
+  {
+    "id": 130,
+    "level": "log",
+    "message": "[Simulator] Flutter Bridge intercepted: evenAppMessage",
+    "ts": 1795586548041
+  },
+  {
+    "id": 131,
+    "level": "log",
+    "message": "[Simulator] Flutter Bridge intercepted: evenAppMessage",
+    "ts": 1795586548044
+  },
+  {
+    "id": 132,
+    "level": "log",
+    "message": "[strike] render STRIKE PREVIEW expires 30s [SIMULATED] {\"renders\":52,\"transfers\":38,\"suppressed\":14,\"failures\":0,\"lastTransferMs\":1,\"avgTransferMs\":2.263157894736842,\"lastError\":null}",
+    "ts": 1795586548047
+  },
+  {
+    "id": 133,
+    "level": "log",
+    "message": "[EvenAppBridge] EvenHub event: {\"jsonData\":{\"eventSource\":1},\"sysEvent\":{\"eventSource\":1}}",
+    "ts": 1795586548449
+  },
+  {
+    "id": 134,
+    "level": "log",
+    "message": "[Simulator] Flutter Bridge intercepted: evenAppMessage",
+    "ts": 1795586548449
+  },
+  {
+    "id": 135,
+    "level": "log",
+    "message": "[Simulator] Flutter Bridge intercepted: evenAppMessage",
+    "ts": 1795586548450
+  },
+  {
+    "id": 136,
+    "level": "log",
+    "message": "[Simulator] Flutter Bridge intercepted: evenAppMessage",
+    "ts": 1795586548453
+  },
+  {
+    "id": 137,
+    "level": "log",
+    "message": "[Simulator] Flutter Bridge intercepted: evenAppMessage",
+    "ts": 1795586548455
+  },
+  {
+    "id": 138,
+    "level": "log",
+    "message": "[strike] render STRIKE ... [SIMULATED] {\"renders\":54,\"transfers\":40,\"suppressed\":14,\"failures\":0,\"lastTransferMs\":2,\"avgTransferMs\":2.275,\"lastError\":null}",
+    "ts": 1795586548458
+  },
+  {
+    "id": 139,
+    "level": "log",
+    "message": "[Simulator] Flutter Bridge intercepted: evenAppMessage",
+    "ts": 1795586549629
+  },
+  {
+    "id": 140,
+    "level": "log",
+    "message": "[Simulator] Flutter Bridge intercepted: evenAppMessage",
+    "ts": 1795586549629
+  },
+  {
+    "id": 141,
+    "level": "log",
+    "message": "[Simulator] Flutter Bridge intercepted: evenAppMessage",
+    "ts": 1795586549632
+  },
+  {
+    "id": 142,
+    "level": "log",
+    "message": "[strike] render STRIKE RECEIPT SIMULATED EXECUTION [SIMULATED] {\"renders\":56,\"transfers\":41,\"suppressed\":15,\"failures\":0,\"lastTransferMs\":2,\"avgTransferMs\":2.268292682926829,\"lastError\":null}",
+    "ts": 1795586549636
+  },
+  {
+    "id": 143,
+    "level": "log",
+    "message": "[EvenAppBridge] EvenHub event: {\"jsonData\":{\"eventSource\":1},\"sysEvent\":{\"eventSource\":1}}",
+    "ts": 1795586549924
+  },
+  {
+    "id": 144,
+    "level": "log",
+    "message": "[Simulator] Flutter Bridge intercepted: evenAppMessage",
+    "ts": 1795586551258
+  },
+  {
+    "id": 145,
+    "level": "log",
+    "message": "[Simulator] Flutter Bridge intercepted: evenAppMessage",
+    "ts": 1795586551259
+  },
+  {
+    "id": 146,
+    "level": "log",
+    "message": "[Simulator] Flutter Bridge intercepted: evenAppMessage",
+    "ts": 1795586551266
+  },
+  {
+    "id": 147,
+    "level": "log",
+    "message": "[Simulator] Flutter Bridge intercepted: evenAppMessage",
+    "ts": 1795586551269
+  },
+  {
+    "id": 148,
+    "level": "log",
+    "message": "[strike] render STRIKE SHADOW ETH INCREASE SHORT $250 3x [SIMULATED] {\"renders\":58,\"transfers\":43,\"suppressed\":15,\"failures\":0,\"lastTransferMs\":4,\"avgTransferMs\":2.302325581395349,\"lastError\":null}",
+    "ts": 1795586551273
+  },
+  {
+    "id": 149,
+    "level": "log",
+    "message": "[EvenAppBridge] EvenHub event: {\"jsonData\":{\"eventSource\":1},\"sysEvent\":{\"eventSource\":1}}",
+    "ts": 1795586551548
+  },
+  {
+    "id": 150,
+    "level": "log",
+    "message": "[Simulator] Flutter Bridge intercepted: evenAppMessage",
+    "ts": 1795586551553
+  },
+  {
+    "id": 151,
+    "level": "log",
+    "message": "[Simulator] Flutter Bridge intercepted: evenAppMessage",
+    "ts": 1795586551554
+  },
+  {
+    "id": 152,
+    "level": "log",
+    "message": "[Simulator] Flutter Bridge intercepted: evenAppMessage",
+    "ts": 1795586551559
+  },
+  {
+    "id": 153,
+    "level": "log",
+    "message": "[Simulator] Flutter Bridge intercepted: evenAppMessage",
+    "ts": 1795586551561
+  },
+  {
+    "id": 154,
+    "level": "log",
+    "message": "[strike] render STRIKE FUNDING ETH LONGS PAY SHORTS [SIMULATED] {\"renders\":60,\"transfers\":45,\"suppressed\":15,\"failures\":0,\"lastTransferMs\":2,\"avgTransferMs\":2.2888888888888888,\"lastError\":null}",
+    "ts": 1795586551564
+  },
+  {
+    "id": 155,
+    "level": "log",
+    "message": "[EvenAppBridge] EvenHub event: {\"jsonData\":{\"eventType\":3,\"eventSource\":1},\"sysEvent\":{\"eventType\":3,\"eventSource\":1}}",
+    "ts": 1795586551961
+  },
+  {
+    "id": 156,
+    "level": "log",
+    "message": "[Simulator] Flutter Bridge intercepted: evenAppMessage",
+    "ts": 1795586551963
+  },
+  {
+    "id": 157,
+    "level": "log",
+    "message": "[Simulator] Flutter Bridge intercepted: evenAppMessage",
+    "ts": 1795586551964
+  },
+  {
+    "id": 158,
+    "level": "log",
+    "message": "[Simulator] Flutter Bridge intercepted: evenAppMessage",
+    "ts": 1795586551970
+  },
+  {
+    "id": 159,
+    "level": "log",
+    "message": "[Simulator] Flutter Bridge intercepted: evenAppMessage",
+    "ts": 1795586551972
+  },
+  {
+    "id": 160,
+    "level": "log",
+    "message": "[strike] render STRIKE RADAR 3/33 18s OLD [SIMULATED] {\"renders\":62,\"transfers\":47,\"suppressed\":15,\"failures\":0,\"lastTransferMs\":1,\"avgTransferMs\":2.25531914893617,\"lastError\":null}",
+    "ts": 1795586551975
+  },
+  {
+    "id": 161,
+    "level": "log",
+    "message": "[EvenAppBridge] EvenHub event: {\"jsonData\":{\"eventType\":3,\"eventSource\":1},\"sysEvent\":{\"eventType\":3,\"eventSource\":1}}",
+    "ts": 1795586552375
+  },
+  {
+    "id": 162,
+    "level": "log",
+    "message": "[Simulator] Flutter Bridge intercepted: evenAppMessage",
+    "ts": 1795586552375
+  },
+  {
+    "id": 163,
+    "level": "log",
+    "message": "[Simulator] Flutter Bridge intercepted: evenAppMessage",
+    "ts": 1795586552376
+  },
+  {
+    "id": 164,
+    "level": "log",
+    "message": "[Simulator] Flutter Bridge intercepted: evenAppMessage",
+    "ts": 1795586552379
+  },
+  {
+    "id": 165,
+    "level": "log",
+    "message": "[Simulator] Flutter Bridge intercepted: evenAppMessage",
+    "ts": 1795586552381
+  },
+  {
+    "id": 166,
+    "level": "log",
+    "message": "[strike] render STRIKE HOME [SIMULATED] {\"renders\":64,\"transfers\":49,\"suppressed\":15,\"failures\":0,\"lastTransferMs\":2,\"avgTransferMs\":2.2448979591836733,\"lastError\":null}",
+    "ts": 1795586552384
+  },
+  {
+    "id": 167,
+    "level": "log",
+    "message": "[EvenAppBridge] EvenHub event: {\"jsonData\":{\"containerID\":1,\"containerName\":\"evt\",\"eventType\":2},\"textEvent\":{\"containerID\":1,\"containerName\":\"evt\",\"eventType\":2}}",
+    "ts": 1795586552787
+  },
+  {
+    "id": 168,
+    "level": "log",
+    "message": "[Simulator] Flutter Bridge intercepted: evenAppMessage",
+    "ts": 1795586552790
+  },
+  {
+    "id": 169,
+    "level": "log",
+    "message": "[Simulator] Flutter Bridge intercepted: evenAppMessage",
+    "ts": 1795586552792
+  },
+  {
+    "id": 170,
+    "level": "log",
+    "message": "[strike] render STRIKE HOME [SIMULATED] {\"renders\":66,\"transfers\":51,\"suppressed\":15,\"failures\":0,\"lastTransferMs\":2,\"avgTransferMs\":2.235294117647059,\"lastError\":null}",
+    "ts": 1795586552795
+  },
+  {
+    "id": 171,
+    "level": "log",
+    "message": "[EvenAppBridge] EvenHub event: {\"jsonData\":{\"eventSource\":1},\"sysEvent\":{\"eventSource\":1}}",
+    "ts": 1795586553200
+  },
+  {
+    "id": 172,
+    "level": "log",
+    "message": "[Simulator] Flutter Bridge intercepted: evenAppMessage",
+    "ts": 1795586553203
+  },
+  {
+    "id": 173,
+    "level": "log",
+    "message": "[Simulator] Flutter Bridge intercepted: evenAppMessage",
+    "ts": 1795586553204
+  },
+  {
+    "id": 174,
+    "level": "log",
+    "message": "[Simulator] Flutter Bridge intercepted: evenAppMessage",
+    "ts": 1795586553209
+  },
+  {
+    "id": 175,
+    "level": "log",
+    "message": "[Simulator] Flutter Bridge intercepted: evenAppMessage",
+    "ts": 1795586553212
+  },
+  {
+    "id": 176,
+    "level": "log",
+    "message": "[strike] render STRIKE POSITIONS 4 [SIMULATED] {\"renders\":68,\"transfers\":53,\"suppressed\":15,\"failures\":0,\"lastTransferMs\":2,\"avgTransferMs\":2.2264150943396226,\"lastError\":null}",
+    "ts": 1795586553214
+  },
+  {
+    "id": 177,
+    "level": "log",
+    "message": "[EvenAppBridge] EvenHub event: {\"jsonData\":{\"eventSource\":1},\"sysEvent\":{\"eventSource\":1}}",
+    "ts": 1795586553610
+  },
+  {
+    "id": 178,
+    "level": "log",
+    "message": "[Simulator] Flutter Bridge intercepted: evenAppMessage",
+    "ts": 1795586553613
+  },
+  {
+    "id": 179,
+    "level": "log",
+    "message": "[Simulator] Flutter Bridge intercepted: evenAppMessage",
+    "ts": 1795586553614
+  },
+  {
+    "id": 180,
+    "level": "log",
+    "message": "[Simulator] Flutter Bridge intercepted: evenAppMessage",
+    "ts": 1795586553620
+  },
+  {
+    "id": 181,
+    "level": "log",
+    "message": "[Simulator] Flutter Bridge intercepted: evenAppMessage",
+    "ts": 1795586553622
+  },
+  {
+    "id": 182,
+    "level": "log",
+    "message": "[strike] render STRIKE ORBIT BTC LONG 3x PROTECTED [SIMULATED] {\"renders\":70,\"transfers\":55,\"suppressed\":15,\"failures\":0,\"lastTransferMs\":2,\"avgTransferMs\":2.2181818181818183,\"lastError\":null}",
+    "ts": 1795586553625
+  },
+  {
+    "id": 183,
+    "level": "log",
+    "message": "[EvenAppBridge] EvenHub event: {\"jsonData\":{\"eventType\":3,\"eventSource\":1},\"sysEvent\":{\"eventType\":3,\"eventSource\":1}}",
+    "ts": 1795586554025
+  },
+  {
+    "id": 184,
+    "level": "log",
+    "message": "[Simulator] Flutter Bridge intercepted: evenAppMessage",
+    "ts": 1795586554025
+  },
+  {
+    "id": 185,
+    "level": "log",
+    "message": "[Simulator] Flutter Bridge intercepted: evenAppMessage",
+    "ts": 1795586554025
+  },
+  {
+    "id": 186,
+    "level": "log",
+    "message": "[Simulator] Flutter Bridge intercepted: evenAppMessage",
+    "ts": 1795586554031
+  },
+  {
+    "id": 187,
+    "level": "log",
+    "message": "[Simulator] Flutter Bridge intercepted: evenAppMessage",
+    "ts": 1795586554033
+  },
+  {
+    "id": 188,
+    "level": "log",
+    "message": "[strike] render STRIKE POSITIONS 4 [SIMULATED] {\"renders\":72,\"transfers\":57,\"suppressed\":15,\"failures\":0,\"lastTransferMs\":2,\"avgTransferMs\":2.2280701754385963,\"lastError\":null}",
+    "ts": 1795586554036
+  },
+  {
+    "id": 189,
+    "level": "log",
+    "message": "[EvenAppBridge] EvenHub event: {\"jsonData\":{\"eventType\":3,\"eventSource\":1},\"sysEvent\":{\"eventType\":3,\"eventSource\":1}}",
+    "ts": 1795586554439
+  },
+  {
+    "id": 190,
+    "level": "log",
+    "message": "[Simulator] Flutter Bridge intercepted: evenAppMessage",
+    "ts": 1795586554439
+  },
+  {
+    "id": 191,
+    "level": "log",
+    "message": "[Simulator] Flutter Bridge intercepted: evenAppMessage",
+    "ts": 1795586554440
+  },
+  {
+    "id": 192,
+    "level": "log",
+    "message": "[Simulator] Flutter Bridge intercepted: evenAppMessage",
+    "ts": 1795586554444
+  },
+  {
+    "id": 193,
+    "level": "log",
+    "message": "[Simulator] Flutter Bridge intercepted: evenAppMessage",
+    "ts": 1795586554445
+  },
+  {
+    "id": 194,
+    "level": "log",
+    "message": "[strike] render STRIKE HOME [SIMULATED] {\"renders\":74,\"transfers\":59,\"suppressed\":15,\"failures\":0,\"lastTransferMs\":2,\"avgTransferMs\":2.2203389830508473,\"lastError\":null}",
+    "ts": 1795586554448
+  },
+  {
+    "id": 195,
+    "level": "log",
+    "message": "[EvenAppBridge] EvenHub event: {\"jsonData\":{\"containerID\":1,\"containerName\":\"evt\",\"eventType\":2},\"textEvent\":{\"containerID\":1,\"containerName\":\"evt\",\"eventType\":2}}",
+    "ts": 1795586554851
+  },
+  {
+    "id": 196,
+    "level": "log",
+    "message": "[Simulator] Flutter Bridge intercepted: evenAppMessage",
+    "ts": 1795586554855
+  },
+  {
+    "id": 197,
+    "level": "log",
+    "message": "[Simulator] Flutter Bridge intercepted: evenAppMessage",
+    "ts": 1795586554857
+  },
+  {
+    "id": 198,
+    "level": "log",
+    "message": "[strike] render STRIKE HOME [SIMULATED] {\"renders\":76,\"transfers\":61,\"suppressed\":15,\"failures\":0,\"lastTransferMs\":2,\"avgTransferMs\":2.2295081967213113,\"lastError\":null}",
+    "ts": 1795586554860
+  },
+  {
+    "id": 199,
+    "level": "log",
+    "message": "[EvenAppBridge] EvenHub event: {\"jsonData\":{\"eventSource\":1},\"sysEvent\":{\"eventSource\":1}}",
+    "ts": 1795586555262
+  },
+  {
+    "id": 200,
+    "level": "log",
+    "message": "[Simulator] Flutter Bridge intercepted: evenAppMessage",
+    "ts": 1795586555276
+  },
+  {
+    "id": 201,
+    "level": "log",
+    "message": "[Simulator] Flutter Bridge intercepted: evenAppMessage",
+    "ts": 1795586555277
+  },
+  {
+    "id": 202,
+    "level": "log",
+    "message": "[Simulator] Flutter Bridge intercepted: evenAppMessage",
+    "ts": 1795586555281
+  },
+  {
+    "id": 203,
+    "level": "log",
+    "message": "[Simulator] Flutter Bridge intercepted: evenAppMessage",
+    "ts": 1795586555284
+  },
+  {
+    "id": 204,
+    "level": "log",
+    "message": "[strike] render STRIKE SENTINEL 2 event(s) [SIMULATED] {\"renders\":78,\"transfers\":63,\"suppressed\":15,\"failures\":0,\"lastTransferMs\":2,\"avgTransferMs\":2.2222222222222223,\"lastError\":null}",
+    "ts": 1795586555286
+  },
+  {
+    "id": 205,
+    "level": "log",
+    "message": "[EvenAppBridge] EvenHub event: {\"jsonData\":{\"eventType\":3,\"eventSource\":1},\"sysEvent\":{\"eventType\":3,\"eventSource\":1}}",
+    "ts": 1795586555675
+  },
+  {
+    "id": 206,
+    "level": "log",
+    "message": "[Simulator] Flutter Bridge intercepted: evenAppMessage",
+    "ts": 1795586555675
+  },
+  {
+    "id": 207,
+    "level": "log",
+    "message": "[Simulator] Flutter Bridge intercepted: evenAppMessage",
+    "ts": 1795586555676
+  },
+  {
+    "id": 208,
+    "level": "log",
+    "message": "[Simulator] Flutter Bridge intercepted: evenAppMessage",
+    "ts": 1795586555680
+  },
+  {
+    "id": 209,
+    "level": "log",
+    "message": "[Simulator] Flutter Bridge intercepted: evenAppMessage",
+    "ts": 1795586555682
+  },
+  {
+    "id": 210,
+    "level": "log",
+    "message": "[strike] render STRIKE HOME [SIMULATED] {\"renders\":80,\"transfers\":65,\"suppressed\":15,\"failures\":0,\"lastTransferMs\":1,\"avgTransferMs\":2.2,\"lastError\":null}",
+    "ts": 1795586555684
+  },
+  {
+    "id": 211,
+    "level": "log",
+    "message": "[EvenAppBridge] EvenHub event: {\"jsonData\":{\"containerID\":1,\"containerName\":\"evt\",\"eventType\":2},\"textEvent\":{\"containerID\":1,\"containerName\":\"evt\",\"eventType\":2}}",
+    "ts": 1795586556088
+  },
+  {
+    "id": 212,
+    "level": "log",
+    "message": "[Simulator] Flutter Bridge intercepted: evenAppMessage",
+    "ts": 1795586556091
+  },
+  {
+    "id": 213,
+    "level": "log",
+    "message": "[Simulator] Flutter Bridge intercepted: evenAppMessage",
+    "ts": 1795586556093
+  },
+  {
+    "id": 214,
+    "level": "log",
+    "message": "[strike] render STRIKE HOME [SIMULATED] {\"renders\":82,\"transfers\":67,\"suppressed\":15,\"failures\":0,\"lastTransferMs\":2,\"avgTransferMs\":2.1940298507462686,\"lastError\":null}",
+    "ts": 1795586556096
+  },
+  {
+    "id": 215,
+    "level": "log",
+    "message": "[EvenAppBridge] EvenHub event: {\"jsonData\":{\"eventSource\":1},\"sysEvent\":{\"eventSource\":1}}",
+    "ts": 1795586556500
+  },
+  {
+    "id": 216,
+    "level": "log",
+    "message": "[Simulator] Flutter Bridge intercepted: evenAppMessage",
+    "ts": 1795586556500
+  },
+  {
+    "id": 217,
+    "level": "log",
+    "message": "[Simulator] Flutter Bridge intercepted: evenAppMessage",
+    "ts": 1795586556501
+  },
+  {
+    "id": 218,
+    "level": "log",
+    "message": "[Simulator] Flutter Bridge intercepted: evenAppMessage",
+    "ts": 1795586556504
+  },
+  {
+    "id": 219,
+    "level": "log",
+    "message": "[Simulator] Flutter Bridge intercepted: evenAppMessage",
+    "ts": 1795586556506
+  },
+  {
+    "id": 220,
+    "level": "log",
+    "message": "[strike] render STRIKE VOICE [SIMULATED] {\"renders\":84,\"transfers\":69,\"suppressed\":15,\"failures\":0,\"lastTransferMs\":2,\"avgTransferMs\":2.1884057971014492,\"lastError\":null}",
+    "ts": 1795586556509
+  },
+  {
+    "id": 221,
+    "level": "log",
+    "message": "[Simulator] Flutter Bridge intercepted: evenAppMessage",
+    "ts": 1795586556509
+  }
+]
