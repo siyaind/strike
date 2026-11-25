@@ -54,6 +54,11 @@ export class RateLimiter {
 
 /** Prompt-injection guard for any free text that might reach an LLM/summariser: strip instructions, cap length.
  * STRIKE's voice pipeline is deterministic; this is defence-in-depth for transcripts and asset descriptions. */
+/** Remove control characters only (user-authored input such as typed voice commands). */
+export function stripControl(s: string, max = 500) {
+  return s.replace(/[\u0000-\u001f\u007f]/g, ' ').slice(0, max)
+}
+/** For third-party text (e.g. CoinGecko descriptions) displayed to users: never treated as instructions. */
 export function sanitizeUntrustedText(s: string, max = 500) {
-  return s.replace(/[\u0000-\u001f\u007f]/g, ' ').replace(/(ignore (all|previous|prior) instructions|system prompt|you are now|execute|confirm the order|sign)/gi, '[filtered]').slice(0, max)
+  return stripControl(s, max * 2).replace(/\b(ignore (all|previous|prior) instructions|system prompt|you are now|execute|confirm the order|sign)\b/gi, '[filtered]').slice(0, max)
 }

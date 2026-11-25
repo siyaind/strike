@@ -7,7 +7,7 @@ const isStop = (o: ExchangeOpenOrder) => /stop/i.test(o.orderType)
 const isTp = (o: ExchangeOpenOrder) => /take profit/i.test(o.orderType)
 
 /** Derive protection ONLY from exchange-listed orders (frontendOpenOrders). Never PROTECTED without a verified order. */
-export function deriveProtection(args: { coin: string; positionSzi: number | null; openOrders: ExchangeOpenOrder[] | null; pending?: boolean; lastSubmitFailed?: boolean }): ProtectionStatus {
+export function deriveProtection(args: { coin: string; positionSzi: number | null; openOrders: ExchangeOpenOrder[] | null; pending?: boolean; lastSubmitFailed?: boolean; source?: 'exchange' | 'simulated-ledger' }): ProtectionStatus {
   const { coin, positionSzi } = args
   const reasons: string[] = []
   if (args.openOrders == null || positionSzi == null) return { state: 'UNKNOWN', stop: null, takeProfit: null, coveredPct: 0, duplicates: [], orphans: [], reasons: ['Exchange order or position state unavailable'] }
@@ -35,7 +35,7 @@ export function deriveProtection(args: { coin: string; positionSzi: number | nul
   else state = 'PROTECTED'
   if (dup.length) reasons.push(`${dup.length} duplicate stop order(s)`)
   if (wrongSide.length) reasons.push('Trigger orders on the wrong side do not protect this position')
-  if (state === 'PROTECTED') reasons.push('Verified from exchange open orders. A trigger does not guarantee execution at the trigger price (gaps, liquidity).')
+  if (state === 'PROTECTED') reasons.push((args.source === 'simulated-ledger' ? 'Verified from the SIMULATED ledger trigger orders.' : 'Verified from exchange open orders.') + ' A trigger does not guarantee execution at the trigger price (gaps, liquidity).')
   return { state, stop: best ? { oid: best.oid, triggerPx: Number(best.triggerPx), sz: sz(best) } : null, takeProfit: tp ? { oid: tp.oid, triggerPx: Number(tp.triggerPx), sz: sz(tp) } : null, coveredPct: Math.min(100, (stopCover / pos) * 100), duplicates: dup, orphans: wrongSide, reasons }
 }
 
