@@ -1,0 +1,24 @@
+# Render blueprint for the STRIKE API (NOT deployed — awaiting owner approval).
+services:
+  - type: web
+    name: strike-api
+    runtime: node
+    plan: free
+    buildCommand: corepack enable && pnpm install --frozen-lockfile
+    startCommand: pnpm --filter @strike/api start
+    healthCheckPath: /healthz
+    envVars:
+      - key: NODE_VERSION
+        value: "22"
+      - key: STRIKE_PUBLIC_ORIGIN
+        sync: false
+      - key: STRIKE_ALLOWED_ORIGINS
+        sync: false
+      - key: STRIKE_CONFIRM_SECRET
+        generateValue: true
+      - key: STRIKE_SIGNER_KEK
+        sync: false # 32-byte base64; generate offline, never commit
+      - key: COINGECKO_DEMO_API_KEY
+        sync: false
+      - key: STRIKE_STT_URL
+        sync: false

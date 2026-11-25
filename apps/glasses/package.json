@@ -6,8 +6,9 @@
   "scripts": {
     "dev": "vite",
     "build": "tsc --noEmit -p tsconfig.json && vite build",
-    "pack": "pnpm build && evenhub pack app.json dist -o strike-g2.ehpk --sdk-ver 0.0.16",
-    "simulate": "evenhub-simulator http://localhost:5180"
+    "ehpk": "pnpm build && evenhub pack app.json dist -o strike-g2.ehpk --sdk-ver 0.0.16",
+    "simulate": "evenhub-simulator http://localhost:5180",
+    "typecheck": "tsc --noEmit -p tsconfig.json"
   },
   "dependencies": {
     "@evenrealities/even_hub_sdk": "0.0.16",

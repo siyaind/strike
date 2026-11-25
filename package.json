@@ -2,26 +2,30 @@
   "name": "strike",
   "private": true,
   "version": "0.1.0",
-  "description": "STRIKE G2 — See the market. Understand the risk. Make your move.",
+  "description": "STRIKE G2 \u2014 See the market. Understand the risk. Make your move.",
   "packageManager": "pnpm@9.15.4",
   "engines": {
     "node": ">=20"
   },
   "scripts": {
-    "typecheck": "tsc -p tsconfig.json --noEmit && pnpm -r --filter ./apps/** run typecheck",
+    "typecheck": "tsc -p tsconfig.json --noEmit && pnpm --filter @strike/glasses exec tsc --noEmit -p . && pnpm --filter @strike/companion typecheck",
     "test": "vitest run",
     "test:watch": "vitest",
     "dev:api": "pnpm --filter @strike/api dev",
     "dev:glasses": "pnpm --filter @strike/glasses dev",
     "dev:companion": "pnpm --filter @strike/companion dev",
     "build": "pnpm -r --filter ./apps/** run build",
-    "e2e": "pnpm --filter @strike/companion e2e",
+    "e2e": "playwright test",
     "sim": "node scripts/sim-verify.mjs",
-    "pack:g2": "pnpm --filter @strike/glasses pack"
+    "pack:g2": "pnpm --filter @strike/glasses run ehpk",
+    "sim:view": "python3 scripts/sim-view.py",
+    "prisma:validate": "prisma validate",
+    "testnet:probe": "pnpm --filter @strike/api exec tsx scripts/testnet-probe.ts"
   },
   "devDependencies": {
     "@playwright/test": "^1.56",
     "@types/node": "^22.10.0",
+    "prisma": "^6.16",
     "typescript": "^5.7.3",
     "vitest": "^3.2.4"
   }

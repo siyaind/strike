@@ -1,0 +1,183 @@
+// STRIKE persistence model (PostgreSQL). Status: schema validated; the running API currently uses the in-memory Store
+// with the same shapes (apps/api/src/store.ts). See docs/STATUS.md → "Persistence".
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+enum UserMode {
+  guest
+  watch
+  wallet
+}
+
+enum HlEnv {
+  testnet
+  mainnet
+}
+
+enum SessionKind {
+  browser
+  device
+}
+
+model User {
+  id           String        @id
+  mode         UserMode
+  address      String?       // lowercase 0x… (wallet / watch)
+  accountEnv   HlEnv?
+  createdAt    DateTime      @default(now())
+  expiresAt    DateTime?     // guests only
+  watchlist    String[]
+  policy       Json          // RiskPolicy
+  sessions     Session[]
+  devices      Device[]
+  signer       AgentSigner?
+  proposals    Proposal[]
+  receipts     Receipt[]
+  sentinel     SentinelEvent[]
+  voice        VoiceCommand[]
+  audit        AuditLog[]
+  @@index([address])
+  @@index([expiresAt])
+}
+
+model Session {
+  tokenHash  String      @id // sha256(token); raw tokens are never stored
+  userId     String
+  user       User        @relation(fields: [userId], references: [id], onDelete: Cascade)
+  kind       SessionKind
+  deviceId   String?
+  createdAt  DateTime    @default(now())
+  expiresAt  DateTime
+  revokedAt  DateTime?
+  @@index([userId])
+}
+
+model Device {
+  id        String    @id
+  userId    String
+  user      User      @relation(fields: [userId], references: [id], onDelete: Cascade)
+  name      String
+  pairedAt  DateTime  @default(now())
+  lastSeen  DateTime?
+  revokedAt DateTime?
+  @@index([userId])
+}
+
+model PairingCode {
+  codeHash  String   @id
+  userId    String
+  expiresAt DateTime
+  attempts  Int      @default(0)
+}
+
+model AuthChallenge {
+  id        String    @id
+  address   String
+  domain    String
+  message   String
+  expiresAt DateTime
+  usedAt    DateTime?
+}
+
+/// Agent key for Hyperliquid TESTNET only. Private key is AES-256-GCM encrypted with a KEK held outside the DB (AAD = userId).
+model AgentSigner {
+  userId        String    @id
+  user          User      @relation(fields: [userId], references: [id], onDelete: Cascade)
+  agentAddress  String
+  encryptedKey  Bytes
+  env           HlEnv     @default(testnet)
+  approvedAt    DateTime?
+  revokedAt     DateTime?
+  createdAt     DateTime  @default(now())
+}
+
+model NonceState {
+  signer    String @id // lowercase address
+  lastNonce BigInt
+}
+
+model Proposal {
+  id          String    @id
+  userId      String
+  user        User      @relation(fields: [userId], references: [id], onDelete: Cascade)
+  env         String    // simulated | testnet
+  coin        String
+  assetId     Int
+  wire        Json
+  risk        Json
+  hash        String
+  createdAt   DateTime  @default(now())
+  expiresAt   DateTime
+  claimedAt   DateTime? // single-use confirmation claim (unique transition)
+  @@index([userId, createdAt])
+}
+
+model Receipt {
+  id               String   @id
+  userId           String
+  user             User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  proposalId       String   @unique
+  env              String
+  coin             String
+  side             String
+  status           String
+  requestedSz      String
+  filledSz         String?
+  avgPx            String?
+  oid              BigInt?
+  cloid            String?
+  exchangeResponse Json?
+  transitions      Json
+  createdAt        DateTime @default(now())
+  @@index([userId, createdAt])
+}
+
+model SentinelEvent {
+  id        String    @id
+  userId    String
+  user      User      @relation(fields: [userId], references: [id], onDelete: Cascade)
+  key       String
+  severity  String
+  coin      String?
+  reason    String
+  firstSeen DateTime
+  lastSeen  DateTime
+  resolved  DateTime?
+  @@unique([userId, key, firstSeen])
+}
+
+model VoiceCommand {
+  id         String   @id @default(cuid())
+  userId     String
+  user       User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  transcript String
+  source     String
+  intent     Json
+  confidence Float?
+  createdAt  DateTime @default(now())
+}
+
+model AuditLog {
+  id        String   @id @default(cuid())
+  userId    String
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  action    String
+  detail    String
+  createdAt DateTime @default(now())
+  @@index([userId, createdAt])
+}
+
+model MarketObservation {
+  coin   String
+  ts     DateTime
+  markPx Float
+  oiNtl  Float
+  vlmNtl Float
+  @@id([coin, ts])
+}
