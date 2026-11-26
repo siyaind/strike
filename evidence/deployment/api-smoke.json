@@ -1,5 +1,5 @@
 {
-  "at": "2026-11-26T05:59:39.216Z",
+  "at": "2026-11-26T06:16:22.995Z",
   "api": "https://strike-g2-api.onrender.com",
   "web": "https://strike-g2.vercel.app",
   "passed": 34,
@@ -10,7 +10,7 @@
       "ok": true,
       "detail": {
         "status": 200,
-        "ms": 339
+        "ms": 456
       }
     },
     {
@@ -18,7 +18,7 @@
       "ok": true,
       "detail": {
         "markets": 179,
-        "ageMs": 120
+        "ageMs": 118
       }
     },
     {
@@ -51,8 +51,8 @@
       "name": "radar live data",
       "ok": true,
       "detail": {
-        "points": 35,
-        "marketAgeMs": 1480,
+        "points": 30,
+        "marketAgeMs": 935,
         "top": [
           "BTC",
           "ETH",
@@ -73,24 +73,24 @@
       "name": "market DNA BTC",
       "ok": true,
       "detail": {
-        "narrative": "BTC is up 2.8% over 24h. Funding is positive: longs pay shorts. Realised volatility ≈55% annualised."
+        "narrative": "BTC is up 2.0% over 24h. Funding is positive: longs pay shorts. Realised volatility ≈55% annualised."
       }
     },
     {
       "name": "liquidity lens BTC",
       "ok": true,
       "detail": {
-        "mid": 60773.5,
-        "spreadBps": 0.16454540219009928,
-        "ageMs": 518
+        "mid": 60481.5,
+        "spreadBps": 0.16533981465406777,
+        "ageMs": 466
       }
     },
     {
       "name": "funding clock ETH",
       "ok": true,
       "detail": {
-        "rateHourly": 0.0000059399,
-        "msToNext": 35203
+        "rateHourly": 0.0000032141,
+        "msToNext": 2626840
       }
     },
     {
@@ -98,14 +98,14 @@
       "ok": true,
       "detail": {
         "protection": "UNPROTECTED",
-        "pnl": 39.67779849999998
+        "pnl": 39.68009500000009
       }
     },
     {
       "name": "shadow trade SOL",
       "ok": true,
       "detail": {
-        "estEntryPx": 70.891,
+        "estEntryPx": 70.677,
         "labels": [
           "SIMULATION",
           "ESTIMATE — not an exchange quote",
@@ -118,7 +118,7 @@
       "ok": true,
       "detail": {
         "risk": true,
-        "price": "Max buy price 60956"
+        "price": "Max buy price 60652"
       }
     },
     {
@@ -127,7 +127,7 @@
       "detail": {
         "status": "FILLED",
         "label": "SIMULATED EXECUTION",
-        "avgPx": "60774"
+        "avgPx": "60472"
       }
     },
     {

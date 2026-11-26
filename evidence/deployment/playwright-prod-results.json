@@ -12,7 +12,7 @@
     "failOnFlakyTests": false,
     "forbidOnly": false,
     "fullyParallel": false,
-    "globalSetup": null,
+    "globalSetup": "/workspace/projects/strike/tests/e2e/prod-setup.ts",
     "globalTeardown": null,
     "globalTimeout": 0,
     "grep": {},
@@ -59,6 +59,7 @@
         "use": {
           "baseURL": "https://strike-g2.vercel.app",
           "channel": "chrome",
+          "storageState": "evidence/deployment/.prod-state.json",
           "screenshot": "only-on-failure",
           "trace": "retain-on-failure"
         },
@@ -115,12 +116,12 @@
                   "workerIndex": 0,
                   "parallelIndex": 0,
                   "status": "passed",
-                  "duration": 2186,
+                  "duration": 1927,
                   "errors": [],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-11-26T05:59:47.254Z",
+                  "startTime": "2026-11-26T06:19:12.276Z",
                   "annotations": [],
                   "attachments": []
                 }
@@ -149,12 +150,12 @@
                   "workerIndex": 0,
                   "parallelIndex": 0,
                   "status": "passed",
-                  "duration": 3974,
+                  "duration": 3873,
                   "errors": [],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-11-26T05:59:49.998Z",
+                  "startTime": "2026-11-26T06:19:14.393Z",
                   "annotations": [],
                   "attachments": []
                 }
@@ -169,7 +170,7 @@
         },
         {
           "title": "asset page: DNA, lens sizing, shadow → preview → confirm SIMULATED; duplicate confirm impossible",
-          "ok": false,
+          "ok": true,
           "tags": [],
           "tests": [
             {
@@ -182,58 +183,18 @@
                 {
                   "workerIndex": 0,
                   "parallelIndex": 0,
-                  "status": "failed",
-                  "duration": 9069,
-                  "error": {
-                    "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: getByText('Order preview')\nExpected: visible\nTimeout: 5000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" getByText('Order preview') with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByText('Order preview')\u001b[22m\n",
-                    "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: getByText('Order preview')\nExpected: visible\nTimeout: 5000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" getByText('Order preview') with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByText('Order preview')\u001b[22m\n\n    at /workspace/projects/strike/tests/e2e/companion.spec.ts:30:49",
-                    "location": {
-                      "file": "/workspace/projects/strike/tests/e2e/companion.spec.ts",
-                      "column": 49,
-                      "line": 30
-                    },
-                    "snippet": "  28 |   await expect(page.getByText('Est. entry')).toBeVisible()\n  29 |   await page.getByRole('button', { name: 'Preview order' }).click()\n> 30 |   await expect(page.getByText('Order preview')).toBeVisible()\n     |                                                 ^\n  31 |   await expect(page.getByText('SIMULATED EXECUTION').first()).toBeVisible()\n  32 |   await page.screenshot({ path: `${shots}/asset-preview.png`, fullPage: true })\n  33 |   await page.getByRole('button', { name: 'Confirm' }).click()"
-                  },
-                  "errors": [
-                    {
-                      "location": {
-                        "file": "/workspace/projects/strike/tests/e2e/companion.spec.ts",
-                        "column": 49,
-                        "line": 30
-                      },
-                      "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: getByText('Order preview')\nExpected: visible\nTimeout: 5000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" getByText('Order preview') with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByText('Order preview')\u001b[22m\n\n\n  28 |   await expect(page.getByText('Est. entry')).toBeVisible()\n  29 |   await page.getByRole('button', { name: 'Preview order' }).click()\n> 30 |   await expect(page.getByText('Order preview')).toBeVisible()\n     |                                                 ^\n  31 |   await expect(page.getByText('SIMULATED EXECUTION').first()).toBeVisible()\n  32 |   await page.screenshot({ path: `${shots}/asset-preview.png`, fullPage: true })\n  33 |   await page.getByRole('button', { name: 'Confirm' }).click()\n    at /workspace/projects/strike/tests/e2e/companion.spec.ts:30:49"
-                    }
-                  ],
+                  "status": "passed",
+                  "duration": 6548,
+                  "errors": [],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-11-26T05:59:53.981Z",
+                  "startTime": "2026-11-26T06:19:18.274Z",
                   "annotations": [],
-                  "attachments": [
-                    {
-                      "name": "screenshot",
-                      "contentType": "image/png",
-                      "path": "/workspace/projects/strike/evidence/deployment/playwright-artifacts/companion-asset-page-DNA-l-40ed3-uplicate-confirm-impossible/test-failed-1.png"
-                    },
-                    {
-                      "name": "error-context",
-                      "contentType": "text/markdown",
-                      "path": "/workspace/projects/strike/evidence/deployment/playwright-artifacts/companion-asset-page-DNA-l-40ed3-uplicate-confirm-impossible/error-context.md"
-                    },
-                    {
-                      "name": "trace",
-                      "contentType": "application/zip",
-                      "path": "/workspace/projects/strike/evidence/deployment/playwright-artifacts/companion-asset-page-DNA-l-40ed3-uplicate-confirm-impossible/trace.zip"
-                    }
-                  ],
-                  "errorLocation": {
-                    "file": "/workspace/projects/strike/tests/e2e/companion.spec.ts",
-                    "column": 49,
-                    "line": 30
-                  }
+                  "attachments": []
                 }
               ],
-              "status": "unexpected"
+              "status": "expected"
             }
           ],
           "id": "d84b00394e37adc97eb7-3cec3d4749a536990838",
@@ -254,15 +215,15 @@
               "projectName": "",
               "results": [
                 {
-                  "workerIndex": 1,
+                  "workerIndex": 0,
                   "parallelIndex": 0,
                   "status": "passed",
-                  "duration": 4730,
+                  "duration": 4376,
                   "errors": [],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-11-26T06:00:03.530Z",
+                  "startTime": "2026-11-26T06:19:24.829Z",
                   "annotations": [],
                   "attachments": []
                 }
@@ -288,15 +249,15 @@
               "projectName": "",
               "results": [
                 {
-                  "workerIndex": 1,
+                  "workerIndex": 0,
                   "parallelIndex": 0,
                   "status": "passed",
-                  "duration": 5504,
+                  "duration": 4569,
                   "errors": [],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-11-26T06:00:08.484Z",
+                  "startTime": "2026-11-26T06:19:29.212Z",
                   "annotations": [],
                   "attachments": []
                 }
@@ -311,7 +272,7 @@
         },
         {
           "title": "devices: pairing code is 6 digits",
-          "ok": false,
+          "ok": true,
           "tags": [],
           "tests": [
             {
@@ -322,60 +283,20 @@
               "projectName": "",
               "results": [
                 {
-                  "workerIndex": 1,
+                  "workerIndex": 0,
                   "parallelIndex": 0,
-                  "status": "failed",
-                  "duration": 6858,
-                  "error": {
-                    "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator: getByTestId('pair-code')\nExpected pattern: \u001b[32m/^\\d{6}$/\u001b[39m\nTimeout: 5000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toHaveText\" getByTestId('pair-code') with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByTestId('pair-code')\u001b[22m\n",
-                    "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator: getByTestId('pair-code')\nExpected pattern: \u001b[32m/^\\d{6}$/\u001b[39m\nTimeout: 5000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toHaveText\" getByTestId('pair-code') with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByTestId('pair-code')\u001b[22m\n\n    at /workspace/projects/strike/tests/e2e/companion.spec.ts:61:47",
-                    "location": {
-                      "file": "/workspace/projects/strike/tests/e2e/companion.spec.ts",
-                      "column": 47,
-                      "line": 61
-                    },
-                    "snippet": "  59 |   await page.goto('/devices')\n  60 |   await page.getByRole('button', { name: 'Generate pairing code' }).click()\n> 61 |   await expect(page.getByTestId('pair-code')).toHaveText(/^\\d{6}$/)\n     |                                               ^\n  62 | })\n  63 |\n  64 | test('diagnostics: testnet-only signing and no secrets', async ({ page }) => {"
-                  },
-                  "errors": [
-                    {
-                      "location": {
-                        "file": "/workspace/projects/strike/tests/e2e/companion.spec.ts",
-                        "column": 47,
-                        "line": 61
-                      },
-                      "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator: getByTestId('pair-code')\nExpected pattern: \u001b[32m/^\\d{6}$/\u001b[39m\nTimeout: 5000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toHaveText\" getByTestId('pair-code') with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByTestId('pair-code')\u001b[22m\n\n\n  59 |   await page.goto('/devices')\n  60 |   await page.getByRole('button', { name: 'Generate pairing code' }).click()\n> 61 |   await expect(page.getByTestId('pair-code')).toHaveText(/^\\d{6}$/)\n     |                                               ^\n  62 | })\n  63 |\n  64 | test('diagnostics: testnet-only signing and no secrets', async ({ page }) => {\n    at /workspace/projects/strike/tests/e2e/companion.spec.ts:61:47"
-                    }
-                  ],
+                  "status": "passed",
+                  "duration": 2426,
+                  "errors": [],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-11-26T06:00:13.997Z",
+                  "startTime": "2026-11-26T06:19:33.789Z",
                   "annotations": [],
-                  "attachments": [
-                    {
-                      "name": "screenshot",
-                      "contentType": "image/png",
-                      "path": "/workspace/projects/strike/evidence/deployment/playwright-artifacts/companion-devices-pairing-code-is-6-digits/test-failed-1.png"
-                    },
-                    {
-                      "name": "error-context",
-                      "contentType": "text/markdown",
-                      "path": "/workspace/projects/strike/evidence/deployment/playwright-artifacts/companion-devices-pairing-code-is-6-digits/error-context.md"
-                    },
-                    {
-                      "name": "trace",
-                      "contentType": "application/zip",
-                      "path": "/workspace/projects/strike/evidence/deployment/playwright-artifacts/companion-devices-pairing-code-is-6-digits/trace.zip"
-                    }
-                  ],
-                  "errorLocation": {
-                    "file": "/workspace/projects/strike/tests/e2e/companion.spec.ts",
-                    "column": 47,
-                    "line": 61
-                  }
+                  "attachments": []
                 }
               ],
-              "status": "unexpected"
+              "status": "expected"
             }
           ],
           "id": "d84b00394e37adc97eb7-3edbf3742f6b2912f786",
@@ -396,15 +317,15 @@
               "projectName": "",
               "results": [
                 {
-                  "workerIndex": 2,
+                  "workerIndex": 0,
                   "parallelIndex": 0,
                   "status": "passed",
-                  "duration": 2092,
+                  "duration": 2673,
                   "errors": [],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-11-26T06:00:21.339Z",
+                  "startTime": "2026-11-26T06:19:36.234Z",
                   "annotations": [],
                   "attachments": []
                 }
@@ -430,15 +351,15 @@
               "projectName": "",
               "results": [
                 {
-                  "workerIndex": 2,
+                  "workerIndex": 0,
                   "parallelIndex": 0,
                   "status": "passed",
-                  "duration": 2492,
+                  "duration": 2850,
                   "errors": [],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-11-26T06:00:23.684Z",
+                  "startTime": "2026-11-26T06:19:38.916Z",
                   "annotations": [],
                   "attachments": []
                 }
@@ -456,11 +377,11 @@
   ],
   "errors": [],
   "stats": {
-    "startTime": "2026-11-26T05:59:46.792Z",
-    "duration": 39471.247,
-    "expected": 6,
+    "startTime": "2026-11-26T06:19:09.678Z",
+    "duration": 32162.494000000002,
+    "expected": 8,
     "skipped": 0,
-    "unexpected": 2,
+    "unexpected": 0,
     "flaky": 0
   }
 }

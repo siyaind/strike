@@ -1,5 +1,5 @@
 {
-  "at": "2026-11-26T06:01:37.355Z",
+  "at": "2026-11-26T06:19:53.092Z",
   "mode": "demo",
   "usage": {
     "mode": "demo",
@@ -40,11 +40,11 @@
       "detail": {
         "count": 15,
         "top": [
-          "bitcoin",
           "pudgy-penguins",
           "venice-token",
+          "bitcoin",
           "monad",
-          "layerzero"
+          "ethereum"
         ]
       }
     },
@@ -80,7 +80,7 @@
       "name": "global",
       "ok": true,
       "detail": {
-        "mcapUsd": 2107164606327
+        "mcapUsd": 2090166708250
       }
     },
     {

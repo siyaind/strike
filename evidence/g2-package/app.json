@@ -7,7 +7,7 @@
   "min_sdk_version": "0.0.16",
   "entrypoint": "index.html",
   "permissions": [
-    { "name": "network", "desc": "Reads market data and your account through the STRIKE API (the only host contacted).", "whitelist": ["http://localhost:8899", "https://api.strike-g2.app"] },
+    { "name": "network", "desc": "Reads market data and your account through the STRIKE API (the only host contacted).", "whitelist": ["http://localhost:8899", "https://strike-g2-api.onrender.com"] },
     { "name": "g2-microphone", "desc": "Push-to-talk voice commands. Audio is only captured while the LISTENING screen is shown.", "whitelist": [] }
   ],
   "supported_languages": ["en"]
