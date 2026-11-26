@@ -26,7 +26,16 @@ export class InfoClient {
     this.timeoutMs = opts.timeoutMs ?? 8000
   }
 
+  /** Read-only info calls are idempotent: on HTTP 429 (shared-IP rate limit) retry ONCE after a short jittered backoff. Exchange calls are never retried. */
   async post<T>(body: Record<string, unknown>): Promise<T> {
+    try { return await this.postOnce<T>(body) } catch (e) {
+      if (e instanceof HlHttpError && e.status === 429) { await new Promise((r) => setTimeout(r, this.retryDelayMs + Math.floor(Math.random() * this.retryDelayMs))); return this.postOnce<T>(body) }
+      throw e
+    }
+  }
+  retryDelayMs = 400
+
+  private async postOnce<T>(body: Record<string, unknown>): Promise<T> {
     const ctl = new AbortController()
     const timer = setTimeout(() => ctl.abort(), this.timeoutMs)
     try {

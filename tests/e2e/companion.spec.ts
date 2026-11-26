@@ -1,6 +1,6 @@
 import { expect, test } from '@playwright/test'
 
-const shots = 'evidence/e2e/screens'
+const shots = process.env.E2E_SHOTS ?? 'evidence/e2e/screens'
 
 test('landing renders brand, CTA and safety copy', async ({ page }) => {
   await page.goto('/')

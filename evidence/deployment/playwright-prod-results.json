@@ -1,0 +1,466 @@
+{
+  "config": {
+    "argv": [
+      "/usr/local/lib/nodejs/node",
+      "/workspace/projects/strike/node_modules/@playwright/test/cli.js",
+      "test",
+      "-c",
+      "playwright.prod.config.ts"
+    ],
+    "configFile": "/workspace/projects/strike/playwright.prod.config.ts",
+    "rootDir": "/workspace/projects/strike/tests/e2e",
+    "failOnFlakyTests": false,
+    "forbidOnly": false,
+    "fullyParallel": false,
+    "globalSetup": null,
+    "globalTeardown": null,
+    "globalTimeout": 0,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 0,
+    "metadata": {
+      "actualWorkers": 1
+    },
+    "preserveOutput": "always",
+    "projects": [
+      {
+        "outputDir": "/workspace/projects/strike/evidence/deployment/playwright-artifacts",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "",
+        "name": "",
+        "testDir": "/workspace/projects/strike/tests/e2e",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 60000
+      }
+    ],
+    "filteredProjects": [
+      {
+        "grep": {},
+        "grepInvert": null,
+        "outputDir": "/workspace/projects/strike/evidence/deployment/playwright-artifacts",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "name": "",
+        "testDir": "/workspace/projects/strike/tests/e2e",
+        "snapshotDir": "/workspace/projects/strike/tests/e2e",
+        "testIgnore": [],
+        "testMatch": "**/*.@(spec|test).?(c|m)[jt]s?(x)",
+        "timeout": 60000,
+        "use": {
+          "baseURL": "https://strike-g2.vercel.app",
+          "channel": "chrome",
+          "screenshot": "only-on-failure",
+          "trace": "retain-on-failure"
+        },
+        "dependencies": [],
+        "ignoreSnapshots": false,
+        "__projectId": ""
+      }
+    ],
+    "quiet": false,
+    "reporter": [
+      [
+        "list",
+        null
+      ],
+      [
+        "json",
+        {
+          "outputFile": "evidence/deployment/playwright-prod-results.json"
+        }
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 300000
+    },
+    "shard": null,
+    "tags": [],
+    "updateSnapshots": "default",
+    "updateSourceMethod": "patch",
+    "version": "1.65.1",
+    "workers": 4,
+    "webServer": null
+  },
+  "suites": [
+    {
+      "title": "companion.spec.ts",
+      "file": "companion.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "landing renders brand, CTA and safety copy",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 2186,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-26T05:59:47.254Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "d84b00394e37adc97eb7-a4cdca7223ebc968731a",
+          "file": "companion.spec.ts",
+          "line": 5,
+          "column": 1
+        },
+        {
+          "title": "guest workspace shows SIMULATED labels, positions and radar from recorded live data",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 3974,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-26T05:59:49.998Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "d84b00394e37adc97eb7-a892200f9ed9f3a33710",
+          "file": "companion.spec.ts",
+          "line": 13,
+          "column": 1
+        },
+        {
+          "title": "asset page: DNA, lens sizing, shadow → preview → confirm SIMULATED; duplicate confirm impossible",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 9069,
+                  "error": {
+                    "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: getByText('Order preview')\nExpected: visible\nTimeout: 5000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" getByText('Order preview') with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByText('Order preview')\u001b[22m\n",
+                    "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: getByText('Order preview')\nExpected: visible\nTimeout: 5000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" getByText('Order preview') with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByText('Order preview')\u001b[22m\n\n    at /workspace/projects/strike/tests/e2e/companion.spec.ts:30:49",
+                    "location": {
+                      "file": "/workspace/projects/strike/tests/e2e/companion.spec.ts",
+                      "column": 49,
+                      "line": 30
+                    },
+                    "snippet": "  28 |   await expect(page.getByText('Est. entry')).toBeVisible()\n  29 |   await page.getByRole('button', { name: 'Preview order' }).click()\n> 30 |   await expect(page.getByText('Order preview')).toBeVisible()\n     |                                                 ^\n  31 |   await expect(page.getByText('SIMULATED EXECUTION').first()).toBeVisible()\n  32 |   await page.screenshot({ path: `${shots}/asset-preview.png`, fullPage: true })\n  33 |   await page.getByRole('button', { name: 'Confirm' }).click()"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "/workspace/projects/strike/tests/e2e/companion.spec.ts",
+                        "column": 49,
+                        "line": 30
+                      },
+                      "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: getByText('Order preview')\nExpected: visible\nTimeout: 5000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" getByText('Order preview') with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByText('Order preview')\u001b[22m\n\n\n  28 |   await expect(page.getByText('Est. entry')).toBeVisible()\n  29 |   await page.getByRole('button', { name: 'Preview order' }).click()\n> 30 |   await expect(page.getByText('Order preview')).toBeVisible()\n     |                                                 ^\n  31 |   await expect(page.getByText('SIMULATED EXECUTION').first()).toBeVisible()\n  32 |   await page.screenshot({ path: `${shots}/asset-preview.png`, fullPage: true })\n  33 |   await page.getByRole('button', { name: 'Confirm' }).click()\n    at /workspace/projects/strike/tests/e2e/companion.spec.ts:30:49"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-26T05:59:53.981Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "/workspace/projects/strike/evidence/deployment/playwright-artifacts/companion-asset-page-DNA-l-40ed3-uplicate-confirm-impossible/test-failed-1.png"
+                    },
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "/workspace/projects/strike/evidence/deployment/playwright-artifacts/companion-asset-page-DNA-l-40ed3-uplicate-confirm-impossible/error-context.md"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "/workspace/projects/strike/evidence/deployment/playwright-artifacts/companion-asset-page-DNA-l-40ed3-uplicate-confirm-impossible/trace.zip"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "/workspace/projects/strike/tests/e2e/companion.spec.ts",
+                    "column": 49,
+                    "line": 30
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "d84b00394e37adc97eb7-3cec3d4749a536990838",
+          "file": "companion.spec.ts",
+          "line": 22,
+          "column": 1
+        },
+        {
+          "title": "position orbit: add a stop to unprotected ETH → verified PROTECTED",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 4730,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-26T06:00:03.530Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "d84b00394e37adc97eb7-34d7c28adfd1520ca89f",
+          "file": "companion.spec.ts",
+          "line": 38,
+          "column": 1
+        },
+        {
+          "title": "voice studio: voice can never confirm",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 5504,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-26T06:00:08.484Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "d84b00394e37adc97eb7-3d845bc6476152eddccf",
+          "file": "companion.spec.ts",
+          "line": 50,
+          "column": 1
+        },
+        {
+          "title": "devices: pairing code is 6 digits",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 6858,
+                  "error": {
+                    "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator: getByTestId('pair-code')\nExpected pattern: \u001b[32m/^\\d{6}$/\u001b[39m\nTimeout: 5000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toHaveText\" getByTestId('pair-code') with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByTestId('pair-code')\u001b[22m\n",
+                    "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator: getByTestId('pair-code')\nExpected pattern: \u001b[32m/^\\d{6}$/\u001b[39m\nTimeout: 5000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toHaveText\" getByTestId('pair-code') with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByTestId('pair-code')\u001b[22m\n\n    at /workspace/projects/strike/tests/e2e/companion.spec.ts:61:47",
+                    "location": {
+                      "file": "/workspace/projects/strike/tests/e2e/companion.spec.ts",
+                      "column": 47,
+                      "line": 61
+                    },
+                    "snippet": "  59 |   await page.goto('/devices')\n  60 |   await page.getByRole('button', { name: 'Generate pairing code' }).click()\n> 61 |   await expect(page.getByTestId('pair-code')).toHaveText(/^\\d{6}$/)\n     |                                               ^\n  62 | })\n  63 |\n  64 | test('diagnostics: testnet-only signing and no secrets', async ({ page }) => {"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "/workspace/projects/strike/tests/e2e/companion.spec.ts",
+                        "column": 47,
+                        "line": 61
+                      },
+                      "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator: getByTestId('pair-code')\nExpected pattern: \u001b[32m/^\\d{6}$/\u001b[39m\nTimeout: 5000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toHaveText\" getByTestId('pair-code') with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByTestId('pair-code')\u001b[22m\n\n\n  59 |   await page.goto('/devices')\n  60 |   await page.getByRole('button', { name: 'Generate pairing code' }).click()\n> 61 |   await expect(page.getByTestId('pair-code')).toHaveText(/^\\d{6}$/)\n     |                                               ^\n  62 | })\n  63 |\n  64 | test('diagnostics: testnet-only signing and no secrets', async ({ page }) => {\n    at /workspace/projects/strike/tests/e2e/companion.spec.ts:61:47"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-26T06:00:13.997Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "/workspace/projects/strike/evidence/deployment/playwright-artifacts/companion-devices-pairing-code-is-6-digits/test-failed-1.png"
+                    },
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "/workspace/projects/strike/evidence/deployment/playwright-artifacts/companion-devices-pairing-code-is-6-digits/error-context.md"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "/workspace/projects/strike/evidence/deployment/playwright-artifacts/companion-devices-pairing-code-is-6-digits/trace.zip"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "/workspace/projects/strike/tests/e2e/companion.spec.ts",
+                    "column": 47,
+                    "line": 61
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "d84b00394e37adc97eb7-3edbf3742f6b2912f786",
+          "file": "companion.spec.ts",
+          "line": 58,
+          "column": 1
+        },
+        {
+          "title": "diagnostics: testnet-only signing and no secrets",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 2,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 2092,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-26T06:00:21.339Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "d84b00394e37adc97eb7-8cea42262ff3b5749a58",
+          "file": "companion.spec.ts",
+          "line": 64,
+          "column": 1
+        },
+        {
+          "title": "radar categories and explanations",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 2,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 2492,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-26T06:00:23.684Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "d84b00394e37adc97eb7-282276e666b4428bd683",
+          "file": "companion.spec.ts",
+          "line": 71,
+          "column": 1
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "stats": {
+    "startTime": "2026-11-26T05:59:46.792Z",
+    "duration": 39471.247,
+    "expected": 6,
+    "skipped": 0,
+    "unexpected": 2,
+    "flaky": 0
+  }
+}

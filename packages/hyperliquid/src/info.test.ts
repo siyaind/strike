@@ -21,3 +21,17 @@ describe('InfoClient request construction', () => {
     await expect(slow.allMids()).rejects.toMatchObject({ kind: 'timeout' })
   })
 })
+
+describe('InfoClient 429 handling', () => {
+  it('retries a read once after HTTP 429, then succeeds', async () => {
+    let n = 0
+    const f = vi.fn(async () => (++n === 1 ? { ok: false, status: 429, text: async () => 'null', json: async () => null } : { ok: true, status: 200, text: async () => '{}', json: async () => ({ ok: 1 }) }))
+    const c = new InfoClient({ env: 'mainnet', fetch: f as any }); c.retryDelayMs = 1
+    expect(await c.post({ type: 'allMids' })).toEqual({ ok: 1 }); expect(f).toHaveBeenCalledTimes(2)
+  })
+  it('a second 429 surfaces as HlHttpError (no retry loop)', async () => {
+    const f = vi.fn(async () => ({ ok: false, status: 429, text: async () => 'null', json: async () => null }))
+    const c = new InfoClient({ env: 'mainnet', fetch: f as any }); c.retryDelayMs = 1
+    await expect(c.post({ type: 'allMids' })).rejects.toMatchObject({ status: 429 }); expect(f).toHaveBeenCalledTimes(2)
+  })
+})
