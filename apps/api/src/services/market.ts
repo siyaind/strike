@@ -2,6 +2,7 @@ import { InfoClient, MetaIndex, type L2Book, type Candle, type CandleInterval, t
 import { SharedCache, CoinGeckoClient } from '@strike/coingecko'
 import { toSnaps, SnapshotHistory, type MarketSnap } from '@strike/market-intelligence'
 import { AssetRegistry } from '@strike/asset-registry'
+import type { BookFeed } from './bookfeed'
 
 export interface MarketData {
   snaps: MarketSnap[]; meta: MetaIndex; ts: number; stale: boolean; env: 'mainnet' | 'testnet'
@@ -13,6 +14,7 @@ export class MarketService {
   readonly history = new SnapshotHistory()
   readonly registry = new AssetRegistry()
   readonly upstream = { hlCalls: 0, hlErrors: 0, lastError: null as string | null }
+  bookFeed: BookFeed | null = null
   constructor(readonly mainnet: InfoClient, readonly testnet: InfoClient, readonly cg: CoinGeckoClient, private readonly now: () => number = Date.now) {
     this.cache = new SharedCache({ now })
   }
@@ -32,10 +34,15 @@ export class MarketService {
   }
   /** Display book (shared cache ≤2s). For EXECUTION use freshBook() which bypasses the cache. */
   async book(coin: string, env: 'mainnet' | 'testnet' = 'mainnet'): Promise<L2Book> {
+    if (env === 'mainnet' && this.bookFeed) { const b = this.bookFeed.get(coin, 3_000); if (b) return b }
     const c = env === 'mainnet' ? this.mainnet : this.testnet
     return (await this.hl(`book:${env}:${coin}`, 2_000, () => c.l2Book(coin))).value
   }
-  async freshBook(coin: string, env: 'mainnet' | 'testnet'): Promise<L2Book> { this.upstream.hlCalls++; return (env === 'mainnet' ? this.mainnet : this.testnet).l2Book(coin) }
+  /** Execution book: a WS book ≤1.5 s old, else a direct REST snapshot (never the display cache). */
+  async freshBook(coin: string, env: 'mainnet' | 'testnet'): Promise<L2Book> {
+    if (env === 'mainnet' && this.bookFeed) { const b = this.bookFeed.get(coin, 1_500); if (b) return b }
+    this.upstream.hlCalls++; return (env === 'mainnet' ? this.mainnet : this.testnet).l2Book(coin)
+  }
   async candles(coin: string, interval: CandleInterval, n = 96, env: 'mainnet' | 'testnet' = 'mainnet'): Promise<Candle[]> {
     const c = env === 'mainnet' ? this.mainnet : this.testnet
     const span = INTERVAL_MS[interval] * n

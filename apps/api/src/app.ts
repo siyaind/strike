@@ -2,7 +2,7 @@ import Fastify, { type FastifyInstance, type FastifyReply, type FastifyRequest }
 import cors from '@fastify/cors'
 import helmet from '@fastify/helmet'
 import { z } from 'zod'
-import { InfoClient, CANDLE_INTERVALS, FUNDING_INTERVAL_MS, approveAgentTypedData, type CandleInterval } from '@strike/hyperliquid'
+import { InfoClient, HlWsMultiplexer, CANDLE_INTERVALS, FUNDING_INTERVAL_MS, approveAgentTypedData, type CandleInterval } from '@strike/hyperliquid'
 import { CoinGeckoClient, COINGECKO_ATTRIBUTION } from '@strike/coingecko'
 import { buildRadar, explainRadar, marketDna, liquidityLens, fundingClock, SIZE_PRESETS, RADAR_CATEGORIES } from '@strike/market-intelligence'
 import { shadowTrade, SCENARIOS_PCT } from '@strike/shadow-trade'
@@ -16,14 +16,16 @@ import { RateLimiter, redact, randomId, sanitizeUntrustedText, stripControl } fr
 import { validateStopPlacement } from '@strike/protection'
 import { MainnetSigningBlockedError, HL_ENDPOINTS } from '@strike/shared'
 import type { Hex } from 'viem'
+import { WebSocket } from 'ws'
 import { loadConfig, type ApiConfig } from './config'
+import { BookFeed } from './services/bookfeed'
 import { Store, type User } from './store'
 import { MarketService } from './services/market'
 import { getPortfolio } from './services/account'
 import { confirm, preview, reconcile, placeStop, type TradeDeps } from './services/trade'
 import { transcribe, sttHealth } from './services/stt'
 
-export interface AppDeps { config?: Partial<ApiConfig>; fetchMainnet?: any; fetchTestnet?: any; fetchCoingecko?: any; now?: () => number }
+export interface AppDeps { config?: Partial<ApiConfig>; fetchMainnet?: any; fetchTestnet?: any; fetchCoingecko?: any; now?: () => number; useWs?: boolean }
 
 declare module 'fastify' { interface FastifyRequest { user?: User; sessionKind?: 'browser' | 'device' } }
 
@@ -36,6 +38,12 @@ export async function buildApp(deps: AppDeps = {}): Promise<{ app: FastifyInstan
   const testnet = new InfoClient({ env: 'testnet', fetch: deps.fetchTestnet })
   const cg = new CoinGeckoClient({ apiKey: config.coingeckoKey, fetch: deps.fetchCoingecko, clock: { now } })
   const ms = new MarketService(mainnet, testnet, cg, now)
+  let wsMux: HlWsMultiplexer | null = null
+  if (!config.offline && deps.useWs !== false) {
+    wsMux = new HlWsMultiplexer('mainnet', (url) => new WebSocket(url) as any)
+    wsMux.connect()
+    ms.bookFeed = new BookFeed(wsMux, now)
+  }
   const store = new Store(now)
   const confirmations = new ConfirmationRegistry(config.confirmSecret, now)
   const nonces = new NonceAllocator(now)
@@ -351,12 +359,12 @@ export async function buildApp(deps: AppDeps = {}): Promise<{ app: FastifyInstan
 
   // ───────── diagnostics ─────────
   app.get('/v1/diagnostics', async () => ({
-    ts: now(), coingecko: cg.usage(), hyperliquid: { ...ms.upstream, cacheEntries: ms.cache.size(), mainnet: HL_ENDPOINTS.mainnet.rest, testnet: HL_ENDPOINTS.testnet.rest, signing: 'testnet-only (mainnet blocked in code)' },
+    ts: now(), coingecko: cg.usage(), hyperliquid: { ...ms.upstream, ws: wsMux?.getStatus() ?? null, bookFeed: ms.bookFeed?.stats ?? null, cacheEntries: ms.cache.size(), mainnet: HL_ENDPOINTS.mainnet.rest, testnet: HL_ENDPOINTS.testnet.rest, signing: 'testnet-only (mainnet blocked in code)' },
     stt: await sttHealth(config), sessions: { users: store.users.size, guests: store.guestCount(), sessions: store.sessions.size, maxGuests: config.maxGuests, guestTtlMs: config.guestTtlMs },
     signer: { configured: !!keystore }, observationStart: ms.history.observationStart(),
   }))
 
   const timer = setInterval(() => { store.cleanup(config.maxGuests); confirmations.purgeExpired() }, 60_000)
-  app.addHook('onClose', async () => clearInterval(timer))
+  app.addHook('onClose', async () => { clearInterval(timer); ms.bookFeed?.close(); wsMux?.close() })
   return { app, store, ms, config, keystore, confirmations }
 }
