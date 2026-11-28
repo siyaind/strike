@@ -30,18 +30,24 @@ export class Store {
   sessions = new Map<string, Session>()
   devices = new Map<string, Device>()
   pairing = new Map<string, { userId: string; expiresAt: number; attempts: number }>()
+  /** Change tracking for the optional Postgres write-through (persistence.ts). Cheap no-op sets when unused. */
+  dirty = new Set<string>()
+  deleted = new Set<string>()
+  touch(userId: string) { this.dirty.add(userId) }
   constructor(private readonly now: () => number = Date.now) {}
 
   createUser(mode: Mode, ttlMs: number | null, address: string | null = null): User {
     const t = this.now()
     const u: User = { id: randomId('usr_'), mode, createdAt: t, expiresAt: ttlMs ? t + ttlMs : null, address: address?.toLowerCase() ?? null, watchAddresses: [], watchlist: ['BTC', 'ETH', 'HYPE'], policy: { ...DEFAULT_POLICY }, ledger: mode === 'guest' ? new SimulatedLedger(10_000) : null, sentinel: new SentinelTracker(), receipts: [], audit: [], voice: [], sessionNotionalUsd: 0, knownOids: new Set(), protectionLog: [], lastPositions: null, accountEnv: 'testnet', demoSeeded: false }
     this.users.set(u.id, u)
+    this.touch(u.id)
     return u
   }
   findWalletUser(address: string) { for (const u of this.users.values()) if (u.mode === 'wallet' && u.address === address.toLowerCase()) return u; return null }
   issueSession(userId: string, kind: Session['kind'], ttlMs: number, deviceId: string | null = null): string {
     const token = randomId('stk_', 32)
     this.sessions.set(sha256Hex(token), { tokenHash: sha256Hex(token), userId, kind, deviceId, createdAt: this.now(), expiresAt: this.now() + ttlMs, revoked: false })
+    this.touch(userId)
     return token
   }
   resolve(token: string | undefined): { user: User; session: Session } | null {
@@ -53,16 +59,16 @@ export class Store {
     if (!u || (u.expiresAt && this.now() > u.expiresAt)) return null
     return { user: u, session: s }
   }
-  revokeSessionsFor(userId: string) { for (const s of this.sessions.values()) if (s.userId === userId) s.revoked = true }
+  revokeSessionsFor(userId: string) { for (const s of this.sessions.values()) if (s.userId === userId) s.revoked = true; this.touch(userId) }
   audit(u: User, type: string, detail: string) { u.audit.push({ t: this.now(), type, detail }); if (u.audit.length > 500) u.audit.shift() }
 
   /** Guest lifecycle: delete expired guests + all their state (ledger, receipts, sessions). Bounded total. */
   cleanup(maxGuests: number): { removedUsers: number; removedSessions: number } {
     const t = this.now()
     let removedUsers = 0, removedSessions = 0
-    for (const [id, u] of this.users) if (u.expiresAt && t > u.expiresAt) { this.users.delete(id); removedUsers++ }
+    for (const [id, u] of this.users) if (u.expiresAt && t > u.expiresAt) { this.users.delete(id); this.deleted.add(id); removedUsers++ }
     const guests = [...this.users.values()].filter((u) => u.mode === 'guest').sort((a, b) => a.createdAt - b.createdAt)
-    while (guests.length > maxGuests) { const g = guests.shift()!; this.users.delete(g.id); removedUsers++ }
+    while (guests.length > maxGuests) { const g = guests.shift()!; this.users.delete(g.id); this.deleted.add(g.id); removedUsers++ }
     for (const [k, s] of this.sessions) if (t > s.expiresAt || s.revoked || !this.users.has(s.userId)) { this.sessions.delete(k); removedSessions++ }
     for (const [k, p] of this.pairing) if (t > p.expiresAt || !this.users.has(p.userId)) this.pairing.delete(k)
     for (const [k, d] of this.devices) if (!this.users.has(d.userId)) this.devices.delete(k)

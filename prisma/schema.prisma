@@ -1,5 +1,6 @@
-// STRIKE persistence model (PostgreSQL). Status: schema validated; the running API currently uses the in-memory Store
-// with the same shapes (apps/api/src/store.ts). See docs/STATUS.md → "Persistence".
+// STRIKE persistence model (PostgreSQL). Optional: when DATABASE_URL is set the API hydrates its in-memory Store from
+// these tables on boot and writes changes through (apps/api/src/persistence.ts). Apply with `pnpm db:deploy`
+// (prisma migrate deploy). Without DATABASE_URL the API runs purely in memory.
 generator client {
   provider = "prisma-client-js"
 }
@@ -34,6 +35,7 @@ model User {
   expiresAt    DateTime?     // guests only
   watchlist    String[]
   policy       Json          // RiskPolicy
+  state        Json?         // simulated ledger, sentinel, audit/voice ring buffers (API-owned snapshot)
   sessions     Session[]
   devices      Device[]
   signer       AgentSigner?

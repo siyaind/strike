@@ -20,6 +20,7 @@ import { WebSocket } from 'ws'
 import { loadConfig, type ApiConfig } from './config'
 import { BookFeed } from './services/bookfeed'
 import { Store, type User } from './store'
+import { PgPersistence } from './persistence'
 import { MarketService } from './services/market'
 import { getPortfolio } from './services/account'
 import { confirm, preview, reconcile, placeStop, type TradeDeps } from './services/trade'
@@ -31,7 +32,7 @@ declare module 'fastify' { interface FastifyRequest { user?: User; sessionKind?:
 
 class HttpError extends Error { constructor(readonly statusCode: number, msg: string, readonly code = 'ERROR') { super(msg) } }
 
-export async function buildApp(deps: AppDeps = {}): Promise<{ app: FastifyInstance; store: Store; ms: MarketService; config: ApiConfig; keystore: AgentKeystore | null; confirmations: ConfirmationRegistry }> {
+export async function buildApp(deps: AppDeps = {}): Promise<{ app: FastifyInstance; store: Store; ms: MarketService; config: ApiConfig; keystore: AgentKeystore | null; confirmations: ConfirmationRegistry; persistence: PgPersistence | null }> {
   const config = { ...loadConfig(), ...deps.config }
   const now = deps.now ?? Date.now
   const mainnet = new InfoClient({ env: 'mainnet', fetch: deps.fetchMainnet })
@@ -45,6 +46,11 @@ export async function buildApp(deps: AppDeps = {}): Promise<{ app: FastifyInstan
     ms.bookFeed = new BookFeed(wsMux, now)
   }
   const store = new Store(now)
+  let persistence: PgPersistence | null = null, persistenceError: string | null = null
+  if (config.databaseUrl) {
+    try { persistence = await PgPersistence.connect(config.databaseUrl, store, now); await persistence.load(); persistence.start() }
+    catch (e) { persistence = null; persistenceError = String((e as Error).message).replace(/postgres(ql)?:\/\/\S+/g, '[db-url]').slice(0, 200); console.warn('[strike] Postgres unavailable, falling back to in-memory store:', persistenceError) }
+  }
   const confirmations = new ConfirmationRegistry(config.confirmSecret, now)
   const nonces = new NonceAllocator(now)
   const keystore = config.signerKek ? new AgentKeystore(config.signerKek) : null
@@ -65,6 +71,8 @@ export async function buildApp(deps: AppDeps = {}): Promise<{ app: FastifyInstan
     const r = store.resolve(tok)
     if (r) { req.user = r.user; req.sessionKind = r.session.kind }
   })
+  // Write-through: any authenticated request may have mutated the user (ledger, receipts, devices, policy…).
+  if (persistence) app.addHook('onResponse', async (req) => { if (req.user) store.touch(req.user.id) /* coalesced per flush tick */ })
   app.setErrorHandler((err: any, _req, reply) => {
     const status = err instanceof HttpError ? err.statusCode : err instanceof ConfirmationError ? 409 : err instanceof ProposalError ? 422 : err instanceof WalletAuthError ? 401 : err instanceof MainnetSigningBlockedError ? 403 : err instanceof z.ZodError ? 400 : err.statusCode ?? (err.kind ? 502 : 500)
     const code = err.code ?? (err instanceof z.ZodError ? 'VALIDATION' : 'ERROR')
@@ -362,11 +370,12 @@ export async function buildApp(deps: AppDeps = {}): Promise<{ app: FastifyInstan
   // ───────── diagnostics ─────────
   app.get('/v1/diagnostics', async () => ({
     ts: now(), coingecko: cg.usage(), hyperliquid: { ...ms.upstream, ws: wsMux?.getStatus() ?? null, bookFeed: ms.bookFeed?.stats ?? null, cacheEntries: ms.cache.size(), mainnet: HL_ENDPOINTS.mainnet.rest, testnet: HL_ENDPOINTS.testnet.rest, signing: 'testnet-only (mainnet blocked in code)' },
+    persistence: persistence ? { mode: 'postgres', ...persistence.stats } : { mode: 'memory', note: config.databaseUrl ? `DATABASE_URL set but unavailable: ${persistenceError}` : 'DATABASE_URL not set — state resets on restart' },
     stt: await sttHealth(config), sessions: { users: store.users.size, guests: store.guestCount(), sessions: store.sessions.size, maxGuests: config.maxGuests, guestTtlMs: config.guestTtlMs },
     signer: { configured: !!keystore }, observationStart: ms.history.observationStart(),
   }))
 
   const timer = setInterval(() => { store.cleanup(config.maxGuests); confirmations.purgeExpired() }, 60_000)
-  app.addHook('onClose', async () => { clearInterval(timer); ms.bookFeed?.close(); wsMux?.close() })
-  return { app, store, ms, config, keystore, confirmations }
+  app.addHook('onClose', async () => { clearInterval(timer); ms.bookFeed?.close(); wsMux?.close(); await persistence?.close() })
+  return { app, store, ms, config, keystore, confirmations, persistence }
 }

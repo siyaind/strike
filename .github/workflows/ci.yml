@@ -8,6 +8,13 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 25
     env: { NEXT_TELEMETRY_DISABLED: '1' }
+    services:
+      postgres:
+        image: postgres:17
+        env: { POSTGRES_USER: ci, POSTGRES_PASSWORD: ci, POSTGRES_DB: strike }
+        ports: ['5432:5432']
+        options: >-
+          --health-cmd "pg_isready -U ci" --health-interval 5s --health-timeout 5s --health-retries 10
     steps:
       - uses: actions/checkout@v4
       - uses: pnpm/action-setup@v4
@@ -16,11 +23,12 @@ jobs:
       - run: pnpm install --frozen-lockfile
       - name: Typecheck (packages, api, glasses, companion)
         run: pnpm typecheck
-      - name: Unit + integration tests (Vitest)
-        run: pnpm test
-      - name: Prisma schema
-        run: pnpm prisma:validate
+      - name: Prisma schema + migrations (real Postgres service)
+        run: pnpm prisma:validate && pnpm db:deploy
         env: { DATABASE_URL: 'postgresql://ci:ci@localhost:5432/strike' }
+      - name: Unit + integration tests (Vitest, incl. Postgres persistence round-trip)
+        run: pnpm test
+        env: { STRIKE_TEST_DATABASE_URL: 'postgresql://ci:ci@localhost:5432/strike' }
       - name: Build glasses app + package .ehpk
         run: pnpm pack:g2
       - name: Secret scan (repo must not contain private keys)

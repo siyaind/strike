@@ -14,6 +14,7 @@ export interface ApiConfig {
   guestTtlMs: number
   maxGuests: number
   offline: boolean // tests: no outbound network
+  databaseUrl: string | null // optional Postgres persistence; null → in-memory only
 }
 
 export function loadConfig(env: NodeJS.ProcessEnv = process.env): ApiConfig {
@@ -33,5 +34,6 @@ export function loadConfig(env: NodeJS.ProcessEnv = process.env): ApiConfig {
     guestTtlMs: Number(env.STRIKE_GUEST_TTL_MS ?? 2 * 3600e3),
     maxGuests: Number(env.STRIKE_MAX_GUESTS ?? 500),
     offline: env.STRIKE_OFFLINE === '1',
+    databaseUrl: env.DATABASE_URL || null,
   }
 }
