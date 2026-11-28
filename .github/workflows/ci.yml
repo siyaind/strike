@@ -23,6 +23,8 @@ jobs:
       - run: pnpm install --frozen-lockfile
       - name: Typecheck (packages, api, glasses, companion)
         run: pnpm typecheck
+      - name: Lint (ESLint + typescript-eslint + react-hooks)
+        run: pnpm lint
       - name: Prisma schema + migrations (real Postgres service)
         run: pnpm prisma:validate && pnpm db:deploy
         env: { DATABASE_URL: 'postgresql://ci:ci@localhost:5432/strike' }

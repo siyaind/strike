@@ -3,7 +3,7 @@ import { expect, test } from '@playwright/test'
 const shots = process.env.E2E_SHOTS ?? 'evidence/e2e/screens'
 
 /** Browser speech (Web Speech API) with a mocked webkitSpeechRecognition that "hears" a fixed phrase. */
-function mockSpeech(phrase: string) {
+function mockSpeech() {
   return (p: string) => {
     class Rec { lang = ''; interimResults = false; continuous = false; maxAlternatives = 1; onresult: any; onerror: any; onend: any
       start() { setTimeout(() => { const r: any = [{ transcript: p, confidence: 0.92 }]; r.isFinal = true; this.onresult?.({ resultIndex: 0, results: [r] }); this.onend?.() }, 150) }
@@ -13,7 +13,7 @@ function mockSpeech(phrase: string) {
 }
 
 test('voice: browser speech → intent for review; spoken "confirm" is refused', async ({ page }) => {
-  await page.addInitScript(mockSpeech(''), 'confirm the order')
+  await page.addInitScript(mockSpeech(), 'confirm the order')
   await page.goto('/voice')
   await expect(page.getByTestId('stt-status')).toContainText('available (free, Web Speech API)')
   await page.getByTestId('mic').click()

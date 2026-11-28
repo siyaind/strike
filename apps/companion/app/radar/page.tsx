@@ -10,7 +10,7 @@ export default function Radar() {
   const [cat, setCat] = useState<string>('all')
   const [sel, setSel] = useState(0)
   const r = usePoll(`/v1/radar?category=${cat}`, 10000)
-  const pts: any[] = r.data?.points ?? []
+  const pts: any[] = useMemo(() => r.data?.points ?? [], [r.data])
   const frame = useMemo(() => renderRadar(pts.slice(0, 24).map((p, i) => ({ ...p, selected: i === sel }))), [pts, sel])
   const s = pts[sel]
   return (

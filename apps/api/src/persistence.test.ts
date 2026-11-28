@@ -1,5 +1,4 @@
 import { describe, expect, it } from 'vitest'
-import { randomBytes } from 'node:crypto'
 import pg from 'pg'
 import { buildApp } from './app'
 import { fakes, T0 } from '../../../tests/fakes'
@@ -8,7 +7,7 @@ import { fakes, T0 } from '../../../tests/fakes'
 const DB = process.env.STRIKE_TEST_DATABASE_URL
 
 async function boot(databaseUrl: string | null) {
-  let t = T0
+  const t = T0
   const built = await buildApp({ ...fakes(), now: () => t, config: { offline: true, publicOrigin: 'https://strike.test', allowedOrigins: [], confirmSecret: 'p'.repeat(40), signerKek: null, databaseUrl } })
   const call = async (method: string, url: string, token?: string, payload?: unknown) => {
     const r = await built.app.inject({ method: method as any, url, payload: payload as any, headers: token ? { authorization: `Bearer ${token}` } : {}, remoteAddress: `10.9.${Math.floor(Math.random() * 250)}.1` })

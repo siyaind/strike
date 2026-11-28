@@ -41,7 +41,7 @@ export function startWebSpeech(opts: { lang?: string; maxMs?: number; onInterim?
     rec.onend = () => {
       if (settled) return; settled = true; clearTimeout(timer)
       const text = finalText.trim()
-      text ? resolve({ text, confidence: conf }) : reject(new Error('No speech heard — try again or type.'))
+      if (text) resolve({ text, confidence: conf }); else reject(new Error('No speech heard — try again or type.'))
     }
   })
   rec.start()

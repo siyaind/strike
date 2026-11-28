@@ -3,7 +3,7 @@ import { use, useMemo, useState } from 'react'
 import { renderDna, renderFunding, renderLens, renderShadow } from '@strike/visual-engine'
 import { api, ensureSession } from '@/lib/api'
 import { usePoll } from '@/lib/hooks'
-import { ErrorBox, Freshness, G2Canvas, Section, Stat, Tag, pct, px, usd } from '@/components/ui'
+import { ErrorBox, Freshness, G2Canvas, Section, Stat, Tag, px, usd } from '@/components/ui'
 
 const SIZES = [50, 100, 250, 500, 1000]
 

@@ -1,5 +1,5 @@
 import type { LocalAccount } from 'viem'
-import { TestnetExchangeClient, orderAction, orderWire, updateLeverageAction, parseExchangeResponse, roundPrice, type InfoClient } from '@strike/hyperliquid'
+import { TestnetExchangeClient, orderAction, orderWire, updateLeverageAction, parseExchangeResponse, roundPrice } from '@strike/hyperliquid'
 import { buildProposal, materialChange, OrderLifecycle, type MarketState, type OrderProposal, type TradeIntent, ConfirmationRegistry } from '@strike/trading-core'
 import { liquidityLens } from '@strike/market-intelligence'
 import { deriveProtection, protectiveOrderParams } from '@strike/protection'

@@ -10,7 +10,7 @@ function decodePng(b: Uint8Array) {
   expect([...b.slice(0, 8)]).toEqual([137, 80, 78, 71, 13, 10, 26, 10])
   const dv = new DataView(b.buffer, b.byteOffset)
   const w = dv.getUint32(16), h = dv.getUint32(20)
-  let o = 8, idat: Uint8Array[] = []
+  let o = 8; const idat: Uint8Array[] = []
   while (o < b.length) { const len = dv.getUint32(o); const type = String.fromCharCode(...b.slice(o + 4, o + 8)); if (type === 'IDAT') idat.push(b.slice(o + 8, o + 8 + len)); o += 12 + len }
   const raw = unzlibSync(idat[0]!)
   return { w, h, bitDepth: b[24], colorType: b[25], raw }
