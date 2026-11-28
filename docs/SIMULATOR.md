@@ -9,9 +9,13 @@ evenhub-simulator http://localhost:5180 --automation-port 9898
 pnpm sim && pnpm sim:view                  # drive flows, then build viewable renders
 ```
 
-## Run recorded in this repo (25 Nov 2026, 11:32 IST / 06:02 UTC)
+## Latest run (28 Nov 2026, 12:35 IST / 07:05 UTC)
 
-Result `ok: true`, **34 screenshots, 0 console errors, 0 image-transfer failures** (every render logs ImageQueue metrics after `updateImageRawData` resolves).
+Result `ok: true`, **32 screenshots, 0 image-transfer failures, 1 console error** — the error is an expected `401 /v1/me` from a session token left in the simulator's localStorage by an earlier run (the API restarted with an in-memory store); the app discarded it and started a fresh guest session. 32 vs 34 steps: in this run the radar's first market had no simulated position, so the flow went straight to DNA (no Orbit step there); Orbit is still covered via Positions → BTC. The voice step now tells the user to speak/type on the phone (free Web Speech API or typed) when no G2 mic/server STT is available.
+
+## First run (25 Nov 2026, 11:32 IST / 06:02 UTC)
+
+Result `ok: true`, **34 screenshots, 0 console errors, 0 image-transfer failures** (every render logs ImageQueue metrics after `updateImageRawData` resolves). Screenshots in the repo are from the latest run.
 
 | Flow | Steps |
 |---|---|
@@ -24,6 +28,6 @@ Result `ok: true`, **34 screenshots, 0 console errors, 0 image-transfer failures
 | E Funding | funding clock |
 | F Positions | positions list with protection state → BTC Orbit (PROTECTED) |
 | H Sentinel | 2 WARNING events (unprotected positions) |
-| I Voice | honest "microphone not available" (simulator emits no G2 audio events) |
+| I Voice | listening → honest fallback (simulator emits no G2 audio events; use phone speech/typed) |
 
 Limits: the simulator does not emulate IMU or device status; real-hardware rendering (brightness, latency over BLE) is **not verified** — no G2 hardware was available.

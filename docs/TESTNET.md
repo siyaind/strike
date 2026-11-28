@@ -1,8 +1,15 @@
 # Hyperliquid testnet verification
 
-Command: `pnpm testnet:probe` (`apps/api/scripts/testnet-probe.ts`). Key: generated locally into `/home/box/secrets/strike-testnet.key` (mode 600, outside the repo, never printed). Evidence: `evidence/testnet/probe.json`.
+Command: `pnpm testnet:probe` (`apps/api/scripts/testnet-probe.ts`). Evidence: `evidence/testnet/probe.json`.
 
-## Result (25 Nov 2026, 11:40 IST / 06:10 UTC)
+## Key loading (runtime only)
+`@strike/signer/testnet-key` → `loadTestnetAccount()`: `STRIKE_TESTNET_PRIVATE_KEY` (env) or `STRIKE_TESTNET_KEY_FILE` (mode 600; raw hex or JSON `{ "privateKey": "0x…" }`), defaulting to `/home/box/secrets/strike-testnet-wallet.json` then `/home/box/secrets/strike-testnet.key`. Never printed, never committed; refused if group/world-readable. Unit-tested (`packages/signer/src/testnet-key.test.ts`).
+
+**Dedicated wallet (28 Nov 2026):** `0x5C2032945E13dA8B0B72031Dd2824Daa073a23Be` — key file present on the build box (mode 600); loader verified to resolve exactly this address. **Not yet funded / no mainnet deposit confirmed**, so the faucet cannot be claimed and no testnet order has been placed with it. Next step once the owner confirms the mainnet deposit: claim the testnet faucet for this address, then run `pnpm testnet:probe` (places a tiny far-from-market GTC and cancels it) and record the real response here.
+
+## Earlier probe (first, throwaway key)
+
+### Result (25 Nov 2026, 11:40 IST / 06:10 UTC)
 
 | Step | Outcome |
 |---|---|

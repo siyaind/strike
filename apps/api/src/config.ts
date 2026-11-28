@@ -15,6 +15,7 @@ export interface ApiConfig {
   maxGuests: number
   offline: boolean // tests: no outbound network
   databaseUrl: string | null // optional Postgres persistence; null → in-memory only
+  guestPerMinute: number // per-IP guest session creation limit (burst = same)
 }
 
 export function loadConfig(env: NodeJS.ProcessEnv = process.env): ApiConfig {
@@ -35,5 +36,6 @@ export function loadConfig(env: NodeJS.ProcessEnv = process.env): ApiConfig {
     maxGuests: Number(env.STRIKE_MAX_GUESTS ?? 500),
     offline: env.STRIKE_OFFLINE === '1',
     databaseUrl: env.DATABASE_URL || null,
+    guestPerMinute: Number(env.STRIKE_GUEST_PER_MIN ?? 5),
   }
 }

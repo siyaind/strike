@@ -9,7 +9,7 @@
 - Preview creates a proposal with a sha256 hash and an HMAC-signed, **single-use** confirm token (30 s). Claim happens before any side effect; duplicate → `REPLAYED`, other user → `WRONG_USER`, expired → `EXPIRED`, risk failed → `RISK_FAILED`.
 - Confirm re-fetches a fresh book and re-runs precision + risk; material change → re-preview.
 - Transport failure after submit → `UNKNOWN`, reconcile via `orderStatus` by `cloid`; never auto-retried.
-- Voice can never confirm (grammar returns `confirm-refused`).
+- Voice can never confirm (grammar returns `confirm-refused`) — regardless of source (G2 mic STT, browser Web Speech, typed); tested in unit, API, controller and Playwright tests.
 
 ## Identity & sessions
 - Guest (Mode A): random session, 2 h TTL, capacity-bounded, rate-limited per IP; simulated ledger only.
@@ -21,6 +21,13 @@
 ## Web
 - Helmet headers, strict CORS allow-list, zod validation on every body/param, structured errors with redaction, per-IP rate limits (guest creation, pairing, voice), body size limits.
 - Third-party text (CoinGecko) is sanitised and displayed as data; user commands are only control-character stripped.
+
+## Persistence
+- Optional Postgres stores only token **hashes**, never raw session tokens; agent private keys and pairing/confirm tokens are not persisted. Confirmation tokens die on restart (replay protection unchanged — tested).
+- Diagnostics redact the database URL; connection failure falls back to memory without leaking credentials (tested).
+
+## Testnet key handling
+- The dedicated testnet wallet key is loaded at runtime only (`@strike/signer/testnet-key`): `STRIKE_TESTNET_PRIVATE_KEY` env or a **mode-600** `STRIKE_TESTNET_KEY_FILE` (raw hex or JSON `{privateKey}`; mnemonic ignored). World/group-readable files are refused; errors never include key material. It is used only with `TestnetExchangeClient`. The public deploy has **no** key and no `STRIKE_SIGNER_KEK`.
 
 ## Secrets
 - `.env*`, `secrets/`, `*.key`, `*.pem` are git-ignored; CI includes a 64-hex secret scan. The only key-like value in the repo is the publicly-known python-SDK test key used for signing vectors.

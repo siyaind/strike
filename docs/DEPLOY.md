@@ -34,7 +34,13 @@ Build: `npx -y pnpm@9.15.4 install --frozen-lockfile --filter "@strike/api..."` 
 
 ## Known operational limits
 - **Hyperliquid REST 429 on Render's shared egress IP.** Mitigations shipped: one jittered retry on info reads; mainnet L2 books served from a shared Hyperliquid **WebSocket** feed (REST fallback); stale data is labelled `STALE PUBLIC MARKET DATA` with its age, and previews fail closed on stale books. Occasional 429s on `metaAndAssetCtxs` still occur (seen in `/v1/diagnostics`).
-- Free Render instances sleep after ~15 min idle; first request takes ~30–60 s and in-memory state is lost.
+- Free Render instances sleep after ~15 min idle; first request takes ~30–60 s and in-memory state is lost. Mitigated by the keep-alive below (and optional Postgres, docs/PERSISTENCE.md).
 - Guest creation is limited to 5/min per IP.
 
 Free tiers only; no paid services were used or configured.
+
+## Keep-alive (Render free-plan sleep)
+- **Primary:** `.github/workflows/keepalive.yml` — cron `*/10 * * * *` + manual `workflow_dispatch`; curls `https://strike-g2-api.onrender.com/health` (cheap, no upstream calls) with 3 retries. GitHub runs scheduled workflows **only from the default branch (`main`)**, so it activates once PR #1 is merged; GitHub may also delay scheduled runs under load.
+- **Backup (free, owner sets up — needs your account):** [cron-job.org](https://cron-job.org) → Create cronjob → URL `https://strike-g2-api.onrender.com/health`, schedule every 10 minutes, method GET, timeout 30 s, notify on failure. (UptimeRobot free 5-min HTTP monitor works the same way.)
+- 10-minute pings ≈ 4 400 requests/month — well inside Render's free 750 instance-hours (one always-on service ≈ 720 h/month).
+- **Before a demo:** open `https://strike-g2-api.onrender.com/health` ~1 minute earlier to be sure it is warm.

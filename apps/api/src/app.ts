@@ -57,7 +57,7 @@ export async function buildApp(deps: AppDeps = {}): Promise<{ app: FastifyInstan
   const walletAuth = new WalletAuth(new URL(config.publicOrigin).host, config.publicOrigin, now)
   const tradeDeps: TradeDeps = { ms, store, confirmations, nonces, now, testnetFetch: deps.fetchTestnet, signerFor: (id) => { if (!keystore) throw new HttpError(503, 'Testnet signer not configured (STRIKE_SIGNER_KEK)'); return keystore.signerFor(id) } }
   const limiter = new RateLimiter(120, 2, now) // per-IP general
-  const guestLimiter = new RateLimiter(5, 5 / 60, now) // per-IP guest creation
+  const guestLimiter = new RateLimiter(config.guestPerMinute, config.guestPerMinute / 60, now) // per-IP guest creation
   const pairLimiter = new RateLimiter(10, 10 / 60, now)
 
   const app = Fastify({ logger: { level: process.env.LOG_LEVEL ?? 'warn', redact: ['req.headers.authorization'] }, bodyLimit: 2 * 1024 * 1024, trustProxy: true })

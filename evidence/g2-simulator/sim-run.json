@@ -1,8 +1,8 @@
 {
   "tool": "@evenrealities/evenhub-simulator automation API",
   "simulator": "http://localhost:9898",
-  "started": "2026-11-25T06:02:12.323Z",
-  "finished": "2026-11-25T06:02:36.911Z",
+  "started": "2026-11-28T07:05:49.983Z",
+  "finished": "2026-11-28T07:06:14.226Z",
   "ok": true,
   "failed": null,
   "steps": [
@@ -10,241 +10,234 @@
       "file": "01-A-welcome.png",
       "name": "A-welcome",
       "note": "Flow A: welcome screen, startup container created",
-      "at": "2026-11-25T06:02:12.379Z",
-      "lastRender": "[strike] render STRIKE G2 | Hyperliquid instruments {\"renders\":2,\"transfers\":2,\"suppressed\":0,\"failures\":0,\"lastTransferMs\":2,\"avgTransferMs\":3,\"lastError\":null}"
+      "at": "2026-11-28T07:05:50.045Z",
+      "lastRender": "[strike] render STRIKE G2 | Hyperliquid instruments {\"renders\":2,\"transfers\":2,\"suppressed\":0,\"failures\":0,\"lastTransferMs\":2,\"avgTransferMs\":5.5,\"lastError\":null}"
     },
     {
       "file": "02-A-hub.png",
       "name": "A-hub",
       "note": "Flow A: guest demo session created → hub",
-      "at": "2026-11-25T06:02:14.617Z",
-      "lastRender": "[strike] render STRIKE HOME [SIMULATED] {\"renders\":6,\"transfers\":6,\"suppressed\":0,\"failures\":0,\"lastTransferMs\":3,\"avgTransferMs\":2.8333333333333335,\"lastError\":null}"
+      "at": "2026-11-28T07:05:52.585Z",
+      "lastRender": "[strike] render STRIKE HOME [SIMULATED] {\"renders\":6,\"transfers\":6,\"suppressed\":0,\"failures\":0,\"lastTransferMs\":2,\"avgTransferMs\":4.5,\"lastError\":null}"
     },
     {
       "file": "03-B-radar.png",
       "name": "B-radar",
       "note": "Flow B: Market Radar with live public Hyperliquid data",
-      "at": "2026-11-25T06:02:15.030Z",
-      "lastRender": "[strike] render STRIKE RADAR 1/33 LIVE [SIMULATED] {\"renders\":8,\"transfers\":8,\"suppressed\":0,\"failures\":0,\"lastTransferMs\":2,\"avgTransferMs\":2.625,\"lastError\":null}"
+      "at": "2026-11-28T07:05:52.998Z",
+      "lastRender": "[strike] render STRIKE RADAR 1/23 LIVE [SIMULATED] {\"renders\":8,\"transfers\":8,\"suppressed\":0,\"failures\":0,\"lastTransferMs\":6,\"avgTransferMs\":4.625,\"lastError\":null}"
     },
     {
       "file": "04-B-radar-next.png",
       "name": "B-radar-next",
       "note": "Flow B: swipe selects next radar item",
-      "at": "2026-11-25T06:02:15.444Z",
-      "lastRender": "[strike] render STRIKE RADAR 2/33 LIVE [SIMULATED] {\"renders\":10,\"transfers\":10,\"suppressed\":0,\"failures\":0,\"lastTransferMs\":2,\"avgTransferMs\":2.5,\"lastError\":null}"
+      "at": "2026-11-28T07:05:53.413Z",
+      "lastRender": "[strike] render STRIKE RADAR 2/23 LIVE [SIMULATED] {\"renders\":10,\"transfers\":9,\"suppressed\":1,\"failures\":0,\"lastTransferMs\":3,\"avgTransferMs\":4.444444444444445,\"lastError\":null}"
     },
     {
       "file": "05-B-radar-next2.png",
       "name": "B-radar-next2",
       "note": "Flow B: swipe again",
-      "at": "2026-11-25T06:02:15.857Z",
-      "lastRender": "[strike] render STRIKE RADAR 3/33 LIVE [SIMULATED] {\"renders\":12,\"transfers\":11,\"suppressed\":1,\"failures\":0,\"lastTransferMs\":3,\"avgTransferMs\":2.5454545454545454,\"lastError\":null}"
+      "at": "2026-11-28T07:05:53.830Z",
+      "lastRender": "[strike] render STRIKE RADAR 3/23 LIVE [SIMULATED] {\"renders\":12,\"transfers\":10,\"suppressed\":2,\"failures\":0,\"lastTransferMs\":2,\"avgTransferMs\":4.2,\"lastError\":null}"
     },
     {
       "file": "06-C-first-instrument.png",
       "name": "C-first-instrument",
       "note": "Flow C: open selected market (Orbit if position, else DNA)",
-      "at": "2026-11-25T06:02:16.270Z",
-      "lastRender": "[strike] render STRIKE ORBIT ETH SHORT 5x UNPROTECTED [SIMULATED] {\"renders\":14,\"transfers\":13,\"suppressed\":1,\"failures\":0,\"lastTransferMs\":1,\"avgTransferMs\":2.4615384615384617,\"lastError\":null}"
+      "at": "2026-11-28T07:05:54.851Z",
+      "lastRender": "[strike] render STRIKE DNA WLFI vs HL universe [SIMULATED] {\"renders\":14,\"transfers\":12,\"suppressed\":2,\"failures\":0,\"lastTransferMs\":3,\"avgTransferMs\":4,\"lastError\":null}"
     },
     {
-      "file": "07-F-orbit-scenario.png",
-      "name": "F-orbit-scenario",
-      "note": "Flow F: Position Orbit scenario -10%",
-      "at": "2026-11-25T06:02:16.686Z",
-      "lastRender": "[strike] render STRIKE ORBIT ETH SHORT 5x UNPROTECTED [SIMULATED] {\"renders\":16,\"transfers\":15,\"suppressed\":1,\"failures\":0,\"lastTransferMs\":2,\"avgTransferMs\":2.4,\"lastError\":null}"
-    },
-    {
-      "file": "08-C-dna.png",
-      "name": "C-dna",
-      "note": "Flow C: Market DNA",
-      "at": "2026-11-25T06:02:17.098Z",
-      "lastRender": "[strike] render STRIKE DNA ETH vs HL universe [SIMULATED] {\"renders\":18,\"transfers\":17,\"suppressed\":1,\"failures\":0,\"lastTransferMs\":1,\"avgTransferMs\":2.3529411764705883,\"lastError\":null}"
-    },
-    {
-      "file": "09-C-dna-axis.png",
+      "file": "07-C-dna-axis.png",
       "name": "C-dna-axis",
       "note": "Flow C: DNA axis selection",
-      "at": "2026-11-25T06:02:17.510Z",
-      "lastRender": "[strike] render STRIKE DNA ETH vs HL universe [SIMULATED] {\"renders\":20,\"transfers\":18,\"suppressed\":2,\"failures\":0,\"lastTransferMs\":3,\"avgTransferMs\":2.388888888888889,\"lastError\":null}"
+      "at": "2026-11-28T07:05:55.266Z",
+      "lastRender": "[strike] render STRIKE DNA WLFI vs HL universe [SIMULATED] {\"renders\":16,\"transfers\":13,\"suppressed\":3,\"failures\":0,\"lastTransferMs\":3,\"avgTransferMs\":3.923076923076923,\"lastError\":null}"
     },
     {
-      "file": "10-D-lens.png",
+      "file": "08-D-lens.png",
       "name": "D-lens",
       "note": "Flow D: Liquidity Lens, $100",
-      "at": "2026-11-25T06:02:18.377Z",
-      "lastRender": "[strike] render STRIKE LENS ETH SELL $100 LIVE [SIMULATED] {\"renders\":22,\"transfers\":20,\"suppressed\":2,\"failures\":0,\"lastTransferMs\":2,\"avgTransferMs\":2.35,\"lastError\":null}"
+      "at": "2026-11-28T07:05:56.437Z",
+      "lastRender": "[strike] render STRIKE LENS WLFI BUY $100 LIVE [SIMULATED] {\"renders\":18,\"transfers\":15,\"suppressed\":3,\"failures\":0,\"lastTransferMs\":3,\"avgTransferMs\":3.6666666666666665,\"lastError\":null}"
     },
     {
-      "file": "11-D-lens-250.png",
+      "file": "09-D-lens-250.png",
       "name": "D-lens-250",
       "note": "Flow D: Liquidity Lens size → $250",
-      "at": "2026-11-25T06:02:18.791Z",
-      "lastRender": "[strike] render STRIKE LENS ETH SELL $250 LIVE [SIMULATED] {\"renders\":24,\"transfers\":20,\"suppressed\":4,\"failures\":0,\"lastTransferMs\":2,\"avgTransferMs\":2.35,\"lastError\":null}"
+      "at": "2026-11-28T07:05:56.850Z",
+      "lastRender": "[strike] render STRIKE LENS WLFI BUY $250 LIVE [SIMULATED] {\"renders\":20,\"transfers\":16,\"suppressed\":4,\"failures\":0,\"lastTransferMs\":2,\"avgTransferMs\":3.5625,\"lastError\":null}"
     },
     {
-      "file": "12-E-shadow.png",
+      "file": "10-E-shadow.png",
       "name": "E-shadow",
       "note": "Flow E: Shadow Trade at $250",
-      "at": "2026-11-25T06:02:19.205Z",
-      "lastRender": "[strike] render STRIKE SHADOW ETH INCREASE SHORT $250 3x [SIMULATED] {\"renders\":26,\"transfers\":22,\"suppressed\":4,\"failures\":0,\"lastTransferMs\":2,\"avgTransferMs\":2.3181818181818183,\"lastError\":null}"
+      "at": "2026-11-28T07:05:57.265Z",
+      "lastRender": "[strike] render STRIKE SHADOW WLFI OPEN LONG $250 3x [SIMULATED] {\"renders\":22,\"transfers\":18,\"suppressed\":4,\"failures\":0,\"lastTransferMs\":2,\"avgTransferMs\":3.388888888888889,\"lastError\":null}"
     },
     {
-      "file": "13-E-shadow-scenario.png",
+      "file": "11-E-shadow-scenario.png",
       "name": "E-shadow-scenario",
       "note": "Flow E: scenario -2%",
-      "at": "2026-11-25T06:02:19.618Z",
-      "lastRender": "[strike] render STRIKE SHADOW ETH INCREASE SHORT $250 3x [SIMULATED] {\"renders\":28,\"transfers\":23,\"suppressed\":5,\"failures\":0,\"lastTransferMs\":2,\"avgTransferMs\":2.3043478260869565,\"lastError\":null}"
+      "at": "2026-11-28T07:05:57.677Z",
+      "lastRender": "[strike] render STRIKE SHADOW WLFI OPEN LONG $250 3x [SIMULATED] {\"renders\":24,\"transfers\":19,\"suppressed\":5,\"failures\":0,\"lastTransferMs\":2,\"avgTransferMs\":3.3157894736842106,\"lastError\":null}"
     },
     {
-      "file": "14-E-shadow-scenario2.png",
+      "file": "12-E-shadow-scenario2.png",
       "name": "E-shadow-scenario2",
       "note": "Flow E: scenario -5%",
-      "at": "2026-11-25T06:02:20.031Z",
-      "lastRender": "[strike] render STRIKE SHADOW ETH INCREASE SHORT $250 3x [SIMULATED] {\"renders\":30,\"transfers\":24,\"suppressed\":6,\"failures\":0,\"lastTransferMs\":2,\"avgTransferMs\":2.2916666666666665,\"lastError\":null}"
+      "at": "2026-11-28T07:05:58.090Z",
+      "lastRender": "[strike] render STRIKE SHADOW WLFI OPEN LONG $250 3x [SIMULATED] {\"renders\":26,\"transfers\":20,\"suppressed\":6,\"failures\":0,\"lastTransferMs\":2,\"avgTransferMs\":3.25,\"lastError\":null}"
     },
     {
-      "file": "15-G-shadow-preview-option.png",
+      "file": "13-G-shadow-preview-option.png",
       "name": "G-shadow-preview-option",
       "note": "Flow G: PREVIEW ORDER option selected",
-      "at": "2026-11-25T06:02:22.863Z",
-      "lastRender": "[strike] render STRIKE SHADOW ETH INCREASE SHORT $250 3x [SIMULATED] {\"renders\":44,\"transfers\":30,\"suppressed\":14,\"failures\":0,\"lastTransferMs\":3,\"avgTransferMs\":2.3,\"lastError\":null}"
+      "at": "2026-11-28T07:06:00.935Z",
+      "lastRender": "[strike] render STRIKE SHADOW WLFI OPEN LONG $250 3x [SIMULATED] {\"renders\":40,\"transfers\":26,\"suppressed\":14,\"failures\":0,\"lastTransferMs\":2,\"avgTransferMs\":3.0384615384615383,\"lastError\":null}"
     },
     {
-      "file": "16-G-preview.png",
+      "file": "14-G-preview.png",
       "name": "G-preview",
       "note": "Flow G: order preview, CANCEL selected by default",
-      "at": "2026-11-25T06:02:26.603Z",
-      "lastRender": "[strike] render STRIKE PREVIEW expires 30s [SIMULATED] {\"renders\":46,\"transfers\":32,\"suppressed\":14,\"failures\":0,\"lastTransferMs\":2,\"avgTransferMs\":2.28125,\"lastError\":null}"
+      "at": "2026-11-28T07:06:04.826Z",
+      "lastRender": "[strike] render STRIKE PREVIEW expires 30s [SIMULATED] {\"renders\":42,\"transfers\":28,\"suppressed\":14,\"failures\":0,\"lastTransferMs\":1,\"avgTransferMs\":3,\"lastError\":null}"
     },
     {
-      "file": "17-G-preview-cancelled.png",
+      "file": "15-G-preview-cancelled.png",
       "name": "G-preview-cancelled",
       "note": "Flow G: tap on default cancels (no order)",
-      "at": "2026-11-25T06:02:27.015Z",
-      "lastRender": "[strike] render STRIKE SHADOW ETH INCREASE SHORT $250 3x [SIMULATED] {\"renders\":48,\"transfers\":34,\"suppressed\":14,\"failures\":0,\"lastTransferMs\":2,\"avgTransferMs\":2.2941176470588234,\"lastError\":null}"
+      "at": "2026-11-28T07:06:05.239Z",
+      "lastRender": "[strike] render STRIKE SHADOW WLFI OPEN LONG $250 3x [SIMULATED] {\"renders\":44,\"transfers\":30,\"suppressed\":14,\"failures\":0,\"lastTransferMs\":3,\"avgTransferMs\":2.966666666666667,\"lastError\":null}"
     },
     {
-      "file": "18-G-preview-again.png",
+      "file": "16-G-preview-again.png",
       "name": "G-preview-again",
       "note": "Flow G: preview again",
-      "at": "2026-11-25T06:02:28.033Z",
-      "lastRender": "[strike] render STRIKE PREVIEW expires 30s [SIMULATED] {\"renders\":50,\"transfers\":36,\"suppressed\":14,\"failures\":0,\"lastTransferMs\":1,\"avgTransferMs\":2.2777777777777777,\"lastError\":null}"
+      "at": "2026-11-28T07:06:06.109Z",
+      "lastRender": "[strike] render STRIKE PREVIEW expires 30s [SIMULATED] {\"renders\":46,\"transfers\":32,\"suppressed\":14,\"failures\":0,\"lastTransferMs\":2,\"avgTransferMs\":2.90625,\"lastError\":null}"
     },
     {
-      "file": "19-G-preview-confirm-selected.png",
+      "file": "17-G-preview-confirm-selected.png",
       "name": "G-preview-confirm-selected",
       "note": "Flow G: swipe to CONFIRM",
-      "at": "2026-11-25T06:02:28.446Z",
-      "lastRender": "[strike] render STRIKE PREVIEW expires 30s [SIMULATED] {\"renders\":52,\"transfers\":38,\"suppressed\":14,\"failures\":0,\"lastTransferMs\":1,\"avgTransferMs\":2.263157894736842,\"lastError\":null}"
+      "at": "2026-11-28T07:06:06.523Z",
+      "lastRender": "[strike] render STRIKE PREVIEW expires 30s [SIMULATED] {\"renders\":48,\"transfers\":34,\"suppressed\":14,\"failures\":0,\"lastTransferMs\":2,\"avgTransferMs\":2.8823529411764706,\"lastError\":null}"
     },
     {
-      "file": "20-G-receipt.png",
+      "file": "18-G-receipt.png",
       "name": "G-receipt",
       "note": "Flow G: SIMULATED execution receipt",
-      "at": "2026-11-25T06:02:29.921Z",
-      "lastRender": "[strike] render STRIKE RECEIPT SIMULATED EXECUTION [SIMULATED] {\"renders\":56,\"transfers\":41,\"suppressed\":15,\"failures\":0,\"lastTransferMs\":2,\"avgTransferMs\":2.268292682926829,\"lastError\":null}"
+      "at": "2026-11-28T07:06:06.936Z",
+      "lastRender": "[strike] render STRIKE RECEIPT SIMULATED EXECUTION [SIMULATED] {\"renders\":52,\"transfers\":37,\"suppressed\":15,\"failures\":0,\"lastTransferMs\":2,\"avgTransferMs\":2.8378378378378377,\"lastError\":null}"
     },
     {
-      "file": "21-G-back-to-shadow.png",
+      "file": "19-G-back-to-shadow.png",
       "name": "G-back-to-shadow",
       "note": "Flow G: back from receipt",
-      "at": "2026-11-25T06:02:31.545Z",
-      "lastRender": "[strike] render STRIKE SHADOW ETH INCREASE SHORT $250 3x [SIMULATED] {\"renders\":58,\"transfers\":43,\"suppressed\":15,\"failures\":0,\"lastTransferMs\":4,\"avgTransferMs\":2.302325581395349,\"lastError\":null}"
+      "at": "2026-11-28T07:06:07.348Z",
+      "lastRender": "[strike] render STRIKE SHADOW WLFI INCREASE LONG $250 3x [SIMULATED] {\"renders\":54,\"transfers\":39,\"suppressed\":15,\"failures\":0,\"lastTransferMs\":1,\"avgTransferMs\":2.7948717948717947,\"lastError\":null}"
     },
     {
-      "file": "22-E-funding.png",
+      "file": "20-E-funding.png",
       "name": "E-funding",
       "note": "Flow E: Funding Clock",
-      "at": "2026-11-25T06:02:31.959Z",
-      "lastRender": "[strike] render STRIKE FUNDING ETH LONGS PAY SHORTS [SIMULATED] {\"renders\":60,\"transfers\":45,\"suppressed\":15,\"failures\":0,\"lastTransferMs\":2,\"avgTransferMs\":2.2888888888888888,\"lastError\":null}"
+      "at": "2026-11-28T07:06:08.367Z",
+      "lastRender": "[strike] render STRIKE FUNDING WLFI SHORTS PAY LONGS [SIMULATED] {\"renders\":56,\"transfers\":41,\"suppressed\":15,\"failures\":0,\"lastTransferMs\":2,\"avgTransferMs\":2.7560975609756095,\"lastError\":null}"
     },
     {
-      "file": "23-H-back-radar.png",
+      "file": "21-H-back-radar.png",
       "name": "H-back-radar",
       "note": "Back to radar",
-      "at": "2026-11-25T06:02:32.372Z",
-      "lastRender": "[strike] render STRIKE RADAR 3/33 18s OLD [SIMULATED] {\"renders\":62,\"transfers\":47,\"suppressed\":15,\"failures\":0,\"lastTransferMs\":1,\"avgTransferMs\":2.25531914893617,\"lastError\":null}"
+      "at": "2026-11-28T07:06:09.687Z",
+      "lastRender": "[strike] render STRIKE RADAR 3/23 LIVE [SIMULATED] {\"renders\":58,\"transfers\":43,\"suppressed\":15,\"failures\":0,\"lastTransferMs\":2,\"avgTransferMs\":2.744186046511628,\"lastError\":null}"
     },
     {
-      "file": "24-H-back-hub.png",
+      "file": "22-H-back-hub.png",
       "name": "H-back-hub",
       "note": "Back to hub",
-      "at": "2026-11-25T06:02:32.784Z",
-      "lastRender": "[strike] render STRIKE HOME [SIMULATED] {\"renders\":64,\"transfers\":49,\"suppressed\":15,\"failures\":0,\"lastTransferMs\":2,\"avgTransferMs\":2.2448979591836733,\"lastError\":null}"
+      "at": "2026-11-28T07:06:10.100Z",
+      "lastRender": "[strike] render STRIKE HOME [SIMULATED] {\"renders\":60,\"transfers\":45,\"suppressed\":15,\"failures\":0,\"lastTransferMs\":1,\"avgTransferMs\":2.7111111111111112,\"lastError\":null}"
     },
     {
-      "file": "25-H-hub-positions.png",
+      "file": "23-H-hub-positions.png",
       "name": "H-hub-positions",
       "note": "Hub: POSITIONS selected",
-      "at": "2026-11-25T06:02:33.197Z",
-      "lastRender": "[strike] render STRIKE HOME [SIMULATED] {\"renders\":66,\"transfers\":51,\"suppressed\":15,\"failures\":0,\"lastTransferMs\":2,\"avgTransferMs\":2.235294117647059,\"lastError\":null}"
+      "at": "2026-11-28T07:06:10.513Z",
+      "lastRender": "[strike] render STRIKE HOME [SIMULATED] {\"renders\":62,\"transfers\":47,\"suppressed\":15,\"failures\":0,\"lastTransferMs\":2,\"avgTransferMs\":2.702127659574468,\"lastError\":null}"
     },
     {
-      "file": "26-F-positions.png",
+      "file": "24-F-positions.png",
       "name": "F-positions",
       "note": "Flow F: positions list with protection state",
-      "at": "2026-11-25T06:02:33.608Z",
-      "lastRender": "[strike] render STRIKE POSITIONS 4 [SIMULATED] {\"renders\":68,\"transfers\":53,\"suppressed\":15,\"failures\":0,\"lastTransferMs\":2,\"avgTransferMs\":2.2264150943396226,\"lastError\":null}"
+      "at": "2026-11-28T07:06:10.926Z",
+      "lastRender": "[strike] render STRIKE POSITIONS 4 [SIMULATED] {\"renders\":64,\"transfers\":49,\"suppressed\":15,\"failures\":0,\"lastTransferMs\":2,\"avgTransferMs\":2.673469387755102,\"lastError\":null}"
     },
     {
-      "file": "27-F-orbit.png",
+      "file": "25-F-orbit.png",
       "name": "F-orbit",
       "note": "Flow F: Position Orbit",
-      "at": "2026-11-25T06:02:34.021Z",
-      "lastRender": "[strike] render STRIKE ORBIT BTC LONG 3x PROTECTED [SIMULATED] {\"renders\":70,\"transfers\":55,\"suppressed\":15,\"failures\":0,\"lastTransferMs\":2,\"avgTransferMs\":2.2181818181818183,\"lastError\":null}"
+      "at": "2026-11-28T07:06:11.338Z",
+      "lastRender": "[strike] render STRIKE ORBIT BTC LONG 3x PROTECTED [SIMULATED] {\"renders\":66,\"transfers\":51,\"suppressed\":15,\"failures\":0,\"lastTransferMs\":1,\"avgTransferMs\":2.6470588235294117,\"lastError\":null}"
     },
     {
-      "file": "28-F-back.png",
+      "file": "26-F-back.png",
       "name": "F-back",
       "note": "back",
-      "at": "2026-11-25T06:02:34.436Z",
-      "lastRender": "[strike] render STRIKE POSITIONS 4 [SIMULATED] {\"renders\":72,\"transfers\":57,\"suppressed\":15,\"failures\":0,\"lastTransferMs\":2,\"avgTransferMs\":2.2280701754385963,\"lastError\":null}"
+      "at": "2026-11-28T07:06:11.750Z",
+      "lastRender": "[strike] render STRIKE POSITIONS 4 [SIMULATED] {\"renders\":68,\"transfers\":53,\"suppressed\":15,\"failures\":0,\"lastTransferMs\":2,\"avgTransferMs\":2.6226415094339623,\"lastError\":null}"
     },
     {
-      "file": "29-H-hub.png",
+      "file": "27-H-hub.png",
       "name": "H-hub",
       "note": "back to hub",
-      "at": "2026-11-25T06:02:34.848Z",
-      "lastRender": "[strike] render STRIKE HOME [SIMULATED] {\"renders\":74,\"transfers\":59,\"suppressed\":15,\"failures\":0,\"lastTransferMs\":2,\"avgTransferMs\":2.2203389830508473,\"lastError\":null}"
+      "at": "2026-11-28T07:06:12.164Z",
+      "lastRender": "[strike] render STRIKE HOME [SIMULATED] {\"renders\":70,\"transfers\":55,\"suppressed\":15,\"failures\":0,\"lastTransferMs\":2,\"avgTransferMs\":2.618181818181818,\"lastError\":null}"
     },
     {
-      "file": "30-H-hub-sentinel.png",
+      "file": "28-H-hub-sentinel.png",
       "name": "H-hub-sentinel",
       "note": "Hub: SENTINEL selected",
-      "at": "2026-11-25T06:02:35.260Z",
-      "lastRender": "[strike] render STRIKE HOME [SIMULATED] {\"renders\":76,\"transfers\":61,\"suppressed\":15,\"failures\":0,\"lastTransferMs\":2,\"avgTransferMs\":2.2295081967213113,\"lastError\":null}"
+      "at": "2026-11-28T07:06:12.576Z",
+      "lastRender": "[strike] render STRIKE HOME [SIMULATED] {\"renders\":72,\"transfers\":57,\"suppressed\":15,\"failures\":0,\"lastTransferMs\":2,\"avgTransferMs\":2.5964912280701755,\"lastError\":null}"
     },
     {
-      "file": "31-H-sentinel.png",
+      "file": "29-H-sentinel.png",
       "name": "H-sentinel",
       "note": "Flow H: Sentinel events (unprotected ETH)",
-      "at": "2026-11-25T06:02:35.672Z",
-      "lastRender": "[strike] render STRIKE SENTINEL 2 event(s) [SIMULATED] {\"renders\":78,\"transfers\":63,\"suppressed\":15,\"failures\":0,\"lastTransferMs\":2,\"avgTransferMs\":2.2222222222222223,\"lastError\":null}"
+      "at": "2026-11-28T07:06:12.988Z",
+      "lastRender": "[strike] render STRIKE SENTINEL 2 event(s) [SIMULATED] {\"renders\":74,\"transfers\":59,\"suppressed\":15,\"failures\":0,\"lastTransferMs\":2,\"avgTransferMs\":2.5762711864406778,\"lastError\":null}"
     },
     {
-      "file": "32-H-hub2.png",
+      "file": "30-H-hub2.png",
       "name": "H-hub2",
       "note": "back to hub",
-      "at": "2026-11-25T06:02:36.085Z",
-      "lastRender": "[strike] render STRIKE HOME [SIMULATED] {\"renders\":80,\"transfers\":65,\"suppressed\":15,\"failures\":0,\"lastTransferMs\":1,\"avgTransferMs\":2.2,\"lastError\":null}"
+      "at": "2026-11-28T07:06:13.401Z",
+      "lastRender": "[strike] render STRIKE HOME [SIMULATED] {\"renders\":76,\"transfers\":61,\"suppressed\":15,\"failures\":0,\"lastTransferMs\":1,\"avgTransferMs\":2.557377049180328,\"lastError\":null}"
     },
     {
-      "file": "33-I-hub-voice.png",
+      "file": "31-I-hub-voice.png",
       "name": "I-hub-voice",
       "note": "Hub: VOICE selected",
-      "at": "2026-11-25T06:02:36.497Z",
-      "lastRender": "[strike] render STRIKE HOME [SIMULATED] {\"renders\":82,\"transfers\":67,\"suppressed\":15,\"failures\":0,\"lastTransferMs\":2,\"avgTransferMs\":2.1940298507462686,\"lastError\":null}"
+      "at": "2026-11-28T07:06:13.813Z",
+      "lastRender": "[strike] render STRIKE HOME [SIMULATED] {\"renders\":78,\"transfers\":63,\"suppressed\":15,\"failures\":0,\"lastTransferMs\":2,\"avgTransferMs\":2.5555555555555554,\"lastError\":null}"
     },
     {
-      "file": "34-I-voice.png",
+      "file": "32-I-voice.png",
       "name": "I-voice",
       "note": "Flow I: voice — simulator has no G2 mic events; honest unavailable message",
-      "at": "2026-11-25T06:02:36.910Z",
-      "lastRender": "[strike] render STRIKE VOICE [SIMULATED] {\"renders\":84,\"transfers\":69,\"suppressed\":15,\"failures\":0,\"lastTransferMs\":2,\"avgTransferMs\":2.1884057971014492,\"lastError\":null}"
+      "at": "2026-11-28T07:06:14.225Z",
+      "lastRender": "[strike] render STRIKE VOICE [SIMULATED] {\"renders\":80,\"transfers\":65,\"suppressed\":15,\"failures\":0,\"lastTransferMs\":2,\"avgTransferMs\":2.523076923076923,\"lastError\":null}"
     }
   ],
-  "consoleErrors": [],
+  "consoleErrors": [
+    {
+      "id": 18,
+      "level": "error",
+      "message": "[fetch] 401 Unauthorized http://localhost:8899/v1/me",
+      "ts": 1795849550098
+    }
+  ],
   "imageFailures": 0
 }
