@@ -74,7 +74,9 @@ export async function buildApp(deps: AppDeps = {}): Promise<{ app: FastifyInstan
   const coinParam = z.object({ coin: z.string().regex(/^[A-Za-z0-9]{1,12}$/) })
 
   // ───────── health ─────────
+  // Cheap liveness (no upstream calls) — used by Render health check and the keep-alive pinger.
   app.get('/healthz', async () => ({ ok: true, ts: now() }))
+  app.get('/health', async () => ({ ok: true, ts: now() }))
   app.get('/readyz', async (_r, reply) => {
     try { const m = await ms.markets('mainnet'); return { ready: true, markets: m.snaps.length, marketTs: m.ts } } catch (e) { return reply.code(503).send({ ready: false, error: String((e as Error).message) }) }
   })
@@ -338,7 +340,7 @@ export async function buildApp(deps: AppDeps = {}): Promise<{ app: FastifyInstan
   // ───────── voice ─────────
   app.post('/v1/voice/command', async (req) => {
     const u = auth(req)
-    const b = z.object({ text: z.string().min(1).max(300), source: z.enum(['typed', 'test', 'stt']).default('typed'), context: z.object({ coin: z.string().nullable().default(null), screen: z.string().default('radar') }).default({ coin: null, screen: 'radar' }), confidence: z.number().nullable().optional() }).parse(req.body)
+    const b = z.object({ text: z.string().min(1).max(300), source: z.enum(['typed', 'test', 'stt', 'browser-stt']).default('typed'), context: z.object({ coin: z.string().nullable().default(null), screen: z.string().default('radar') }).default({ coin: null, screen: 'radar' }), confidence: z.number().nullable().optional() }).parse(req.body)
     const m = await ms.markets('mainnet').catch(() => null)
     const pf = await getPortfolio(u, ms, now()).catch(() => null)
     const text = stripControl(b.text, 300)

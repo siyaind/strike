@@ -17,7 +17,7 @@ async function mk(o: Parameters<typeof fakes>[0] = {}, cfg: Record<string, unkno
 }
 
 describe('API: public market intelligence', () => {
-  it('health + readiness', async () => { const a = await mk(); expect((await a.call('GET', '/healthz')).status).toBe(200); expect((await a.call('GET', '/readyz')).body.ready).toBe(true) })
+  it('health + readiness', async () => { const a = await mk(); expect((await a.call('GET', '/healthz')).status).toBe(200); expect((await a.call('GET', '/health')).body.ok).toBe(true); expect((await a.call('GET', '/readyz')).body.ready).toBe(true) })
   it('radar works anonymously with explanations and CoinGecko attribution', async () => {
     const a = await mk(); const r = await a.call('GET', '/v1/radar')
     expect(r.status).toBe(200); expect(r.body.points.length).toBeGreaterThan(5)
@@ -103,6 +103,7 @@ describe('API: guest demo + simulated execution', () => {
     expect(s.body.events.some((e: any) => e.key === 'prot:ETH')).toBe(true)
     const v = await a.call('POST', '/v1/voice/command', t, { text: 'confirm the order' }); expect(v.body.intent.type).toBe('confirm-refused')
     const v2 = await a.call('POST', '/v1/voice/command', t, { text: 'What happens if BTC falls five percent?' }); expect(v2.body.intent).toMatchObject({ type: 'scenario', coin: 'BTC', pct: -5 })
+    const v3 = await a.call('POST', '/v1/voice/command', t, { text: 'confirm', source: 'browser-stt', confidence: 0.95 }); expect(v3.body.intent.type).toBe('confirm-refused'); expect(v3.body.source).toBe('browser-stt')
   })
   it('STT disabled → explicit error, no scripted transcript', async () => {
     const a = await mk(); const t = await a.guest()

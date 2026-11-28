@@ -1,0 +1,23 @@
+name: keepalive
+# Pings the free Render API so it does not spin down (free instances sleep after ~15 min idle).
+# GitHub only runs scheduled workflows from the default branch, and may delay/skip runs under load —
+# see docs/DEPLOY.md for the cron-job.org backup.
+on:
+  schedule:
+    - cron: '*/10 * * * *'
+  workflow_dispatch:
+permissions: { contents: read }
+jobs:
+  ping:
+    runs-on: ubuntu-latest
+    timeout-minutes: 3
+    steps:
+      - name: Ping STRIKE API /health
+        run: |
+          for i in 1 2 3; do
+            code=$(curl -s -o /dev/null -w '%{http_code}' --max-time 70 https://strike-g2-api.onrender.com/health) || code=000
+            echo "attempt $i → HTTP $code"
+            [ "$code" = "200" ] && exit 0
+            sleep 10
+          done
+          exit 1
