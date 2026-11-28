@@ -1,0 +1,6 @@
+evidence
+.github
+docs
+scripts/*.py
+apps/glasses/dist
+*.ehpk

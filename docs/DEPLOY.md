@@ -1,0 +1,46 @@
+# Deployment (LIVE — owner-approved 26 Nov 2026)
+
+_Last updated: 28 Nov 2026, 12:50 IST (07:20 UTC) — redeployed: Render `dep-dc57ssgu01pc73foshh0` (commit `e24a54e`), Vercel `dpl_CTHmpJXn2XiSigoVEzNetCns8bik`_
+
+| Piece | Live URL / target | State |
+|---|---|---|
+| Companion | **https://strike-g2.vercel.app** — Vercel project `strike-g2`, root `apps/companion`, Next.js, Node 22 | Live. Vercel SSO/Deployment Protection **disabled** (public). `NEXT_PUBLIC_STRIKE_API=https://strike-g2-api.onrender.com` baked into the build. |
+| API | **https://strike-g2-api.onrender.com** — Render free web service `srv-dc3sjqmq1p3s73c75q50` (Singapore), branch `feat/strike-core` | Live on free plan. In-memory store (no Postgres). Health check `/healthz`. |
+| Glasses | Even Hub | `app.json` network whitelist now `http://localhost:8899` + `https://strike-g2-api.onrender.com`; `.ehpk` rebuilt with `VITE_STRIKE_API` = Render URL (sha256 in `evidence/g2-package/`). **Not uploaded** — `evenhub upload` needs the owner's Even Hub account. |
+| STT | — | Free browser Web Speech API + typed live; server STT optional via `STRIKE_STT_URL` (not configured, no paid STT). |
+| Database | — | Not provisioned (free/in-memory by decision). Optional Postgres supported via `DATABASE_URL` (docs/PERSISTENCE.md). |
+
+## Render environment (values never printed or committed)
+- `NODE_VERSION=22`
+- `STRIKE_PUBLIC_ORIGIN` = `STRIKE_ALLOWED_ORIGINS` = `https://strike-g2.vercel.app` → **strict CORS** (other origins get no ACAO header; verified in smoke).
+- `STRIKE_CONFIRM_SECRET` — random, generated on the box.
+- `COINGECKO_DEMO_API_KEY` — owner's free Demo key, set from the box environment.
+- **No `STRIKE_SIGNER_KEK` and no testnet key** → agent signer disabled (`/v1/diagnostics` → `signer.configured: false`; agent endpoints return 403). Public deploy = guest (simulated ledger on live books), watch-only, wallet-auth only. Mainnet signing is blocked in code regardless.
+
+Build: `npx -y pnpm@9.15.4 install --frozen-lockfile --filter "@strike/api..."` · Start: `cd apps/api && node_modules/.bin/tsx src/main.ts`.
+
+## Redeploying
+- **Render auto-deploy does not fire** (public repo connected without the Render GitHub app). Deploy manually:
+  `render deploys create srv-dc3sjqmq1p3s73c75q50 --commit <sha> --wait --confirm`
+  (or install the Render GitHub app / add a deploy hook — owner action).
+- Vercel: `vercel deploy --prod` from the repo root (project linked; `.vercelignore` excludes evidence/docs).
+
+## Verification (evidence in `evidence/deployment/`)
+| Check | Result |
+|---|---|
+| `node scripts/smoke-prod.mjs` (health, `/health` keep-alive, readiness, guest flow, live radar, DNA/lens/funding/orbit/shadow, preview→confirm→receipt, replay/cross-user refusal, voice confirm refusal, 401/403, CORS, diagnostics, 13 companion routes, security headers) | **36/36** on 28 Nov after redeploy (`api-smoke.json`) |
+| Playwright vs prod companion (`playwright.prod.config.ts`, 13 tests incl. mocked-wallet connect + browser speech) | **12 passed, 1 skipped** (Mode D — no signer in public deploy) on 28 Nov (`playwright-prod-results.json`, `screens/`) |
+| CoinGecko Demo live tests (`tests/live/coingecko-demo.live.test.ts`, key-gated) | **pass** — ping, trending, cache, 30/30 verified mappings (TON listed as "Gram (prev. Toncoin)", same id), global, categories, coin, search, 7-day chart, attribution (`coingecko-demo-live.json`; key not in file) |
+
+## Known operational limits
+- **Hyperliquid REST 429 on Render's shared egress IP.** Mitigations shipped: one jittered retry on info reads; mainnet L2 books served from a shared Hyperliquid **WebSocket** feed (REST fallback); stale data is labelled `STALE PUBLIC MARKET DATA` with its age, and previews fail closed on stale books. Occasional 429s on `metaAndAssetCtxs` still occur (seen in `/v1/diagnostics`).
+- Free Render instances sleep after ~15 min idle; first request takes ~30–60 s and in-memory state is lost. Mitigated by the keep-alive below (and optional Postgres, docs/PERSISTENCE.md).
+- Guest creation is limited to 5/min per IP.
+
+Free tiers only; no paid services were used or configured.
+
+## Keep-alive (Render free-plan sleep)
+- **Primary:** `.github/workflows/keepalive.yml` — cron `*/10 * * * *` + manual `workflow_dispatch`; curls `https://strike-g2-api.onrender.com/health` (cheap, no upstream calls) with 3 retries. GitHub runs scheduled workflows **only from the default branch (`main`)**, so it activates once PR #1 is merged; GitHub may also delay scheduled runs under load.
+- **Backup (free, owner sets up — needs your account):** [cron-job.org](https://cron-job.org) → Create cronjob → URL `https://strike-g2-api.onrender.com/health`, schedule every 10 minutes, method GET, timeout 30 s, notify on failure. (UptimeRobot free 5-min HTTP monitor works the same way.)
+- 10-minute pings ≈ 4 400 requests/month — well inside Render's free 750 instance-hours (one always-on service ≈ 720 h/month).
+- **Before a demo:** open `https://strike-g2-api.onrender.com/health` ~1 minute earlier to be sure it is warm.

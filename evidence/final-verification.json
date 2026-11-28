@@ -1,0 +1,50 @@
+{
+  "generatedAt": "2026-11-25T06:15:00Z",
+  "branch": "feat/strike-core",
+  "typecheck": {
+    "command": "pnpm typecheck",
+    "result": "pass"
+  },
+  "unit": {
+    "command": "pnpm test",
+    "files": 22,
+    "tests": 244,
+    "passed": 244,
+    "failed": 0
+  },
+  "e2e": {
+    "command": "pnpm e2e",
+    "expected": 8,
+    "unexpected": 0,
+    "flaky": 0
+  },
+  "prisma": {
+    "command": "pnpm prisma:validate",
+    "result": "valid"
+  },
+  "g2Package": {
+    "command": "pnpm pack:g2",
+    "file": "apps/glasses/strike-g2.ehpk",
+    "sha256": "5f98cc37938e0f3ec58b83a4b1ab7c623a886188e29c8b45b77f5584f81f886f"
+  },
+  "simulator": {
+    "tool": "@evenrealities/evenhub-simulator 0.9.5",
+    "ok": true,
+    "screenshots": 34,
+    "consoleErrors": 0,
+    "imageFailures": 0,
+    "started": "2026-11-25T06:02:12.323Z"
+  },
+  "testnet": {
+    "result": "SIGNED_REQUEST_ACCEPTED_BY_TESTNET_API_BUT_REJECTED_UNFUNDED",
+    "blocked": "BLOCKED: account unfunded. Testnet faucet requires a mainnet deposit from the same address; owner action needed.",
+    "at": "2026-11-25T06:10:20.203Z"
+  },
+  "notVerified": [
+    "real G2 hardware",
+    "funded testnet orders/fills/protection",
+    "CoinGecko Demo-key mode",
+    "STT endpoint",
+    "production deploy"
+  ]
+}

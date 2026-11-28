@@ -1,0 +1,81 @@
+{
+  "at": "2026-11-25T06:10:20.203Z",
+  "env": "testnet",
+  "address": "0xEBC60cE670EA295C3c4283EEe2fC1A3126BAC31b",
+  "keyLocation": "outside repo (mode 600)",
+  "steps": [
+    {
+      "name": "testnet clearinghouseState",
+      "at": "2026-11-25T06:10:21.615Z",
+      "data": {
+        "accountValue": "0.0",
+        "withdrawable": "0.0",
+        "positions": 0
+      }
+    },
+    {
+      "name": "testnet userRole",
+      "at": "2026-11-25T06:10:23.388Z",
+      "data": {
+        "role": "missing"
+      }
+    },
+    {
+      "name": "mainnet clearinghouseState (read-only)",
+      "at": "2026-11-25T06:10:24.894Z",
+      "data": {
+        "accountValue": "0.0",
+        "note": "Testnet faucet requires a prior mainnet deposit from the same address"
+      }
+    },
+    {
+      "name": "mainnet client construction",
+      "at": "2026-11-25T06:10:24.894Z",
+      "data": {
+        "blocked": true,
+        "error": "Error: Mainnet signed execution is disabled in STRIKE (attempted in TestnetExchangeClient)."
+      }
+    },
+    {
+      "name": "testnet signed order (BTC GTC 50% below mid, ~$12)",
+      "at": "2026-11-25T06:10:26.307Z",
+      "data": {
+        "request": {
+          "action": {
+            "type": "order",
+            "orders": [
+              {
+                "a": 3,
+                "b": true,
+                "p": "29484",
+                "s": "0.0004",
+                "r": false,
+                "t": {
+                  "limit": {
+                    "tif": "Gtc"
+                  }
+                }
+              }
+            ],
+            "grouping": "na"
+          },
+          "nonce": 1795587025678,
+          "vaultAddress": null
+        },
+        "httpStatus": 200,
+        "raw": {
+          "status": "err",
+          "response": "User or API Wallet 0xebc60ce670ea295c3c4283eee2fc1a3126bac31b does not exist."
+        },
+        "parsed": {
+          "ok": false,
+          "topLevelError": "User or API Wallet 0xebc60ce670ea295c3c4283eee2fc1a3126bac31b does not exist.",
+          "type": null,
+          "statuses": []
+        }
+      }
+    }
+  ],
+  "result": "SIGNED_REQUEST_ACCEPTED_BY_TESTNET_API_BUT_REJECTED_UNFUNDED",
+  "blocked": "BLOCKED: account unfunded. Testnet faucet requires a mainnet deposit from the same address; owner action needed."
+}

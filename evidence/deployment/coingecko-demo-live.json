@@ -1,0 +1,123 @@
+{
+  "at": "2026-11-28T07:04:54.205Z",
+  "mode": "demo",
+  "usage": {
+    "mode": "demo",
+    "monthKey": "2026-11",
+    "callsThisMonth": 7,
+    "monthlyBudget": 10000,
+    "callsLastMinute": 7,
+    "perMinute": 60,
+    "circuit": "closed",
+    "lastError": null,
+    "cacheEntries": 7,
+    "hits": 1,
+    "misses": 7,
+    "dedupedJoins": 0
+  },
+  "results": [
+    {
+      "name": "mode",
+      "ok": true,
+      "detail": {
+        "mode": "demo",
+        "perMinute": 60
+      }
+    },
+    {
+      "name": "ping",
+      "ok": true,
+      "detail": {
+        "status": 200,
+        "body": {
+          "gecko_says": "(V3) To the Moon!"
+        }
+      }
+    },
+    {
+      "name": "trending",
+      "ok": true,
+      "detail": {
+        "count": 15,
+        "top": [
+          "world-liberty-financial",
+          "usd1-wlfi",
+          "bitcoin",
+          "portal-2",
+          "official-trump"
+        ]
+      }
+    },
+    {
+      "name": "cache",
+      "ok": true,
+      "detail": {
+        "callsBefore": 1,
+        "callsAfter": 1
+      }
+    },
+    {
+      "name": "verified-mappings",
+      "ok": true,
+      "detail": {
+        "checked": 30,
+        "missing": [],
+        "mismatches": [],
+        "rebrands": [
+          {
+            "cgId": "the-open-network",
+            "hl": "TON",
+            "sym": "TON",
+            "name": "Toncoin",
+            "cgSymbol": "gram",
+            "cgName": "Gram (prev. Toncoin)",
+            "found": true
+          }
+        ]
+      }
+    },
+    {
+      "name": "global",
+      "ok": true,
+      "detail": {
+        "mcapUsd": 2072555216788
+      }
+    },
+    {
+      "name": "categories",
+      "ok": true,
+      "detail": {
+        "count": 782
+      }
+    },
+    {
+      "name": "coin",
+      "ok": true,
+      "detail": {
+        "id": "bitcoin"
+      }
+    },
+    {
+      "name": "search",
+      "ok": true,
+      "detail": {
+        "first": "hyperliquid"
+      }
+    },
+    {
+      "name": "marketChart",
+      "ok": true,
+      "detail": {
+        "points": 169
+      }
+    },
+    {
+      "name": "attribution",
+      "ok": true,
+      "detail": {
+        "text": "Market research data provided by CoinGecko",
+        "url": "https://www.coingecko.com/en/api"
+      }
+    }
+  ]
+}

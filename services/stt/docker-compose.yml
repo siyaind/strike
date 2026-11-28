@@ -1,0 +1,14 @@
+# Self-hosted, OpenAI-compatible speech-to-text for STRIKE voice (no paid service).
+# Speaches (formerly faster-whisper-server) exposes POST /v1/audio/transcriptions.
+# STRIKE API env: STRIKE_STT_URL=http://localhost:8000/v1/audio/transcriptions  STRIKE_STT_MODEL=Systran/faster-whisper-small.en
+services:
+  stt:
+    image: ghcr.io/speaches-ai/speaches:latest-cpu
+    ports: ["8000:8000"]
+    environment:
+      - WHISPER__TTL=-1
+    volumes:
+      - hf-cache:/home/ubuntu/.cache/huggingface/hub
+    restart: unless-stopped
+volumes:
+  hf-cache:
