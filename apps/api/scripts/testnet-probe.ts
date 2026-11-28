@@ -1,17 +1,15 @@
 /**
- * Hyperliquid TESTNET verification probe. Key lives OUTSIDE the repo (default /home/box/secrets/strike-testnet.key, mode 600) and is never printed.
+ * Hyperliquid TESTNET verification probe. Key lives OUTSIDE the repo (env var or mode-600 file, see @strike/signer/testnet-key) and is never printed.
  * Records exactly what the testnet returned. Never touches mainnet signing (and proves it is blocked).
  */
-import { existsSync, mkdirSync, readFileSync, writeFileSync, chmodSync } from 'node:fs'
-import { generatePrivateKey, privateKeyToAccount } from 'viem/accounts'
+import { mkdirSync, writeFileSync } from 'node:fs'
 import { InfoClient, MetaIndex, TestnetExchangeClient, orderAction, orderWire, roundPrice, roundSizeDown } from '@strike/hyperliquid'
 import { NonceAllocator } from '@strike/signer'
+import { loadTestnetAccount } from '@strike/signer/testnet-key'
 
-const KEY = process.env.STRIKE_TESTNET_KEY_FILE ?? '/home/box/secrets/strike-testnet.key'
-if (!existsSync(KEY)) { mkdirSync(KEY.replace(/\/[^/]+$/, ''), { recursive: true }); writeFileSync(KEY, generatePrivateKey() + '\n', { mode: 0o600 }) }
-chmodSync(KEY, 0o600)
-const acct = privateKeyToAccount(readFileSync(KEY, 'utf8').trim() as `0x${string}`)
-const out: any = { at: new Date().toISOString(), env: 'testnet', address: acct.address, keyLocation: 'outside repo (mode 600)', steps: [] as any[] }
+// Key loaded at runtime from STRIKE_TESTNET_PRIVATE_KEY or STRIKE_TESTNET_KEY_FILE (default /home/box/secrets/strike-testnet-wallet.json). Never printed.
+const { account: acct, source } = loadTestnetAccount()
+const out: any = { at: new Date().toISOString(), env: 'testnet', address: acct.address, keyLocation: source === 'env' ? 'env var (not printed)' : 'file outside repo (mode 600)', steps: [] as any[] }
 const step = (name: string, data: unknown) => { out.steps.push({ name, at: new Date().toISOString(), data }); console.log('•', name, JSON.stringify(data).slice(0, 300)) }
 
 const info = new InfoClient({ env: 'testnet' })
