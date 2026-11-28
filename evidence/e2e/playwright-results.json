@@ -17,7 +17,7 @@
     "grepInvert": null,
     "maxFailures": 0,
     "metadata": {
-      "actualWorkers": 1
+      "actualWorkers": 3
     },
     "preserveOutput": "always",
     "projects": [
@@ -26,7 +26,7 @@
         "repeatEach": 1,
         "retries": 0,
         "metadata": {
-          "actualWorkers": 1
+          "actualWorkers": 3
         },
         "id": "",
         "name": "",
@@ -46,7 +46,7 @@
         "repeatEach": 1,
         "retries": 0,
         "metadata": {
-          "actualWorkers": 1
+          "actualWorkers": 3
         },
         "name": "",
         "testDir": "/workspace/projects/strike/tests/e2e",
@@ -113,12 +113,12 @@
                   "workerIndex": 0,
                   "parallelIndex": 0,
                   "status": "passed",
-                  "duration": 589,
+                  "duration": 936,
                   "errors": [],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-11-25T06:13:44.158Z",
+                  "startTime": "2026-11-28T07:04:29.820Z",
                   "annotations": [],
                   "attachments": []
                 }
@@ -147,12 +147,12 @@
                   "workerIndex": 0,
                   "parallelIndex": 0,
                   "status": "passed",
-                  "duration": 454,
+                  "duration": 605,
                   "errors": [],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-11-25T06:13:44.962Z",
+                  "startTime": "2026-11-28T07:04:31.021Z",
                   "annotations": [],
                   "attachments": []
                 }
@@ -181,12 +181,12 @@
                   "workerIndex": 0,
                   "parallelIndex": 0,
                   "status": "passed",
-                  "duration": 808,
+                  "duration": 1007,
                   "errors": [],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-11-25T06:13:45.428Z",
+                  "startTime": "2026-11-28T07:04:31.639Z",
                   "annotations": [],
                   "attachments": []
                 }
@@ -215,12 +215,12 @@
                   "workerIndex": 0,
                   "parallelIndex": 0,
                   "status": "passed",
-                  "duration": 471,
+                  "duration": 539,
                   "errors": [],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-11-25T06:13:46.246Z",
+                  "startTime": "2026-11-28T07:04:32.664Z",
                   "annotations": [],
                   "attachments": []
                 }
@@ -249,12 +249,12 @@
                   "workerIndex": 0,
                   "parallelIndex": 0,
                   "status": "passed",
-                  "duration": 382,
+                  "duration": 427,
                   "errors": [],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-11-25T06:13:46.726Z",
+                  "startTime": "2026-11-28T07:04:33.223Z",
                   "annotations": [],
                   "attachments": []
                 }
@@ -283,12 +283,12 @@
                   "workerIndex": 0,
                   "parallelIndex": 0,
                   "status": "passed",
-                  "duration": 301,
+                  "duration": 364,
                   "errors": [],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-11-25T06:13:47.118Z",
+                  "startTime": "2026-11-28T07:04:33.660Z",
                   "annotations": [],
                   "attachments": []
                 }
@@ -317,12 +317,12 @@
                   "workerIndex": 0,
                   "parallelIndex": 0,
                   "status": "passed",
-                  "duration": 247,
+                  "duration": 304,
                   "errors": [],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-11-25T06:13:47.429Z",
+                  "startTime": "2026-11-28T07:04:34.033Z",
                   "annotations": [],
                   "attachments": []
                 }
@@ -351,12 +351,12 @@
                   "workerIndex": 0,
                   "parallelIndex": 0,
                   "status": "passed",
-                  "duration": 453,
+                  "duration": 496,
                   "errors": [],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-11-25T06:13:47.692Z",
+                  "startTime": "2026-11-28T07:04:34.348Z",
                   "annotations": [],
                   "attachments": []
                 }
@@ -370,13 +370,199 @@
           "column": 1
         }
       ]
+    },
+    {
+      "title": "voice.spec.ts",
+      "file": "voice.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "voice: browser speech → intent for review; spoken \"confirm\" is refused",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 1,
+                  "status": "passed",
+                  "duration": 1151,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-28T07:04:29.797Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "4f8e77fcf9b309101475-c3abbe92f01d2ff1bd7e",
+          "file": "voice.spec.ts",
+          "line": 15,
+          "column": 1
+        },
+        {
+          "title": "voice: typed fallback when the browser has no speech recognition",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 1,
+                  "status": "passed",
+                  "duration": 561,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-28T07:04:31.235Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "4f8e77fcf9b309101475-9924ff13e1b5e60bd22e",
+          "file": "voice.spec.ts",
+          "line": 26,
+          "column": 1
+        }
+      ]
+    },
+    {
+      "title": "wallet.spec.ts",
+      "file": "wallet.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "wallet: connect via injected EIP-1193 provider → personal_sign ownership proof → wallet mode (no transactions)",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 2,
+                  "parallelIndex": 2,
+                  "status": "passed",
+                  "duration": 968,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-28T07:04:29.910Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "27e87c8ff6887d69f80e-2ae2ad85c12158b6d7cb",
+          "file": "wallet.spec.ts",
+          "line": 34,
+          "column": 1
+        },
+        {
+          "title": "wallet: rejected signature leaves the user signed out with a readable error",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 2,
+                  "parallelIndex": 2,
+                  "status": "passed",
+                  "duration": 510,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-28T07:04:31.086Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "27e87c8ff6887d69f80e-ceb8109e2314fe0a5049",
+          "file": "wallet.spec.ts",
+          "line": 52,
+          "column": 1
+        },
+        {
+          "title": "wallet: Mode D agent approval is EIP-712 for Hyperliquid TESTNET only",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 2,
+                  "parallelIndex": 2,
+                  "status": "passed",
+                  "duration": 708,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-28T07:04:31.620Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "27e87c8ff6887d69f80e-b21e496ae2de8e8fee44",
+          "file": "wallet.spec.ts",
+          "line": 60,
+          "column": 1
+        }
+      ]
     }
   ],
   "errors": [],
   "stats": {
-    "startTime": "2026-11-25T06:13:30.117Z",
-    "duration": 18114.472999999998,
-    "expected": 8,
+    "startTime": "2026-11-28T07:04:13.598Z",
+    "duration": 21366.412,
+    "expected": 13,
     "skipped": 0,
     "unexpected": 0,
     "flaky": 0

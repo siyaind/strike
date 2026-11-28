@@ -4,7 +4,7 @@ import { api, ensureSession } from './api'
 
 export function useSession() {
   const [me, setMe] = useState<any>(null); const [err, setErr] = useState<string | null>(null)
-  const refresh = useCallback(async () => { try { await ensureSession(); setMe(await api('/v1/me')); setErr(null) } catch (e) { setErr((e as Error).message) } }, [])
+  const refresh = useCallback(async () => { try { await ensureSession(); setMe(await api('/v1/me')); setErr(null) } catch (e) { setMe(null); setErr((e as Error).message) } }, [])
   useEffect(() => { void refresh() }, [refresh])
   return { me, err, refresh }
 }
