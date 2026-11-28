@@ -1,8 +1,8 @@
 {
-  "at": "2026-11-26T06:16:22.995Z",
+  "at": "2026-11-28T07:16:22.700Z",
   "api": "https://strike-g2-api.onrender.com",
   "web": "https://strike-g2.vercel.app",
-  "passed": 34,
+  "passed": 36,
   "failed": 0,
   "checks": [
     {
@@ -10,7 +10,25 @@
       "ok": true,
       "detail": {
         "status": 200,
-        "ms": 456
+        "ms": 404
+      }
+    },
+    {
+      "name": "health (keep-alive endpoint)",
+      "ok": true,
+      "detail": {
+        "status": 200,
+        "ms": 249
+      }
+    },
+    {
+      "name": "diagnostics: no signer key, persistence mode reported",
+      "ok": true,
+      "detail": {
+        "signer": {
+          "configured": false
+        },
+        "persistence": "memory"
       }
     },
     {
@@ -18,7 +36,7 @@
       "ok": true,
       "detail": {
         "markets": 179,
-        "ageMs": 118
+        "ageMs": 126
       }
     },
     {
@@ -51,12 +69,12 @@
       "name": "radar live data",
       "ok": true,
       "detail": {
-        "points": 30,
-        "marketAgeMs": 935,
+        "points": 20,
+        "marketAgeMs": 883,
         "top": [
           "BTC",
           "ETH",
-          "MOVE"
+          "BLUR"
         ]
       }
     },
@@ -73,24 +91,24 @@
       "name": "market DNA BTC",
       "ok": true,
       "detail": {
-        "narrative": "BTC is up 2.0% over 24h. Funding is positive: longs pay shorts. Realised volatility ≈55% annualised."
+        "narrative": "BTC is down 3.6% over 24h. Funding is negative: shorts pay longs. Realised volatility ≈62% annualise"
       }
     },
     {
       "name": "liquidity lens BTC",
       "ok": true,
       "detail": {
-        "mid": 60481.5,
-        "spreadBps": 0.16533981465406777,
-        "ageMs": 466
+        "mid": 59580.5,
+        "spreadBps": 0.16784014904205233,
+        "ageMs": 2815
       }
     },
     {
       "name": "funding clock ETH",
       "ok": true,
       "detail": {
-        "rateHourly": 0.0000032141,
-        "msToNext": 2626840
+        "rateHourly": 0.000003232,
+        "msToNext": 2626274
       }
     },
     {
@@ -98,14 +116,14 @@
       "ok": true,
       "detail": {
         "protection": "UNPROTECTED",
-        "pnl": 39.68009500000009
+        "pnl": 39.67786449999999
       }
     },
     {
       "name": "shadow trade SOL",
       "ok": true,
       "detail": {
-        "estEntryPx": 70.677,
+        "estEntryPx": 71.135,
         "labels": [
           "SIMULATION",
           "ESTIMATE — not an exchange quote",
@@ -118,7 +136,7 @@
       "ok": true,
       "detail": {
         "risk": true,
-        "price": "Max buy price 60652"
+        "price": "Max buy price 59730"
       }
     },
     {
@@ -127,7 +145,7 @@
       "detail": {
         "status": "FILLED",
         "label": "SIMULATED EXECUTION",
-        "avgPx": "60472"
+        "avgPx": "59549.99999999999"
       }
     },
     {

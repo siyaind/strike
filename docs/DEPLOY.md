@@ -1,14 +1,14 @@
 # Deployment (LIVE — owner-approved 26 Nov 2026)
 
-_Last updated: 26 Nov 2026, 11:55 IST (06:25 UTC)_
+_Last updated: 28 Nov 2026, 12:50 IST (07:20 UTC) — redeployed: Render `dep-dc57ssgu01pc73foshh0` (commit `e24a54e`), Vercel `dpl_CTHmpJXn2XiSigoVEzNetCns8bik`_
 
 | Piece | Live URL / target | State |
 |---|---|---|
 | Companion | **https://strike-g2.vercel.app** — Vercel project `strike-g2`, root `apps/companion`, Next.js, Node 22 | Live. Vercel SSO/Deployment Protection **disabled** (public). `NEXT_PUBLIC_STRIKE_API=https://strike-g2-api.onrender.com` baked into the build. |
 | API | **https://strike-g2-api.onrender.com** — Render free web service `srv-dc3sjqmq1p3s73c75q50` (Singapore), branch `feat/strike-core` | Live on free plan. In-memory store (no Postgres). Health check `/healthz`. |
 | Glasses | Even Hub | `app.json` network whitelist now `http://localhost:8899` + `https://strike-g2-api.onrender.com`; `.ehpk` rebuilt with `VITE_STRIKE_API` = Render URL (sha256 in `evidence/g2-package/`). **Not uploaded** — `evenhub upload` needs the owner's Even Hub account. |
-| STT | — | Not configured. Typed fallback active; provider is configurable via `STRIKE_STT_URL` (OpenAI-compatible). No paid STT. |
-| Database | — | Not provisioned (free/in-memory by decision). State resets on restart/sleep. |
+| STT | — | Free browser Web Speech API + typed live; server STT optional via `STRIKE_STT_URL` (not configured, no paid STT). |
+| Database | — | Not provisioned (free/in-memory by decision). Optional Postgres supported via `DATABASE_URL` (docs/PERSISTENCE.md). |
 
 ## Render environment (values never printed or committed)
 - `NODE_VERSION=22`
@@ -28,8 +28,8 @@ Build: `npx -y pnpm@9.15.4 install --frozen-lockfile --filter "@strike/api..."` 
 ## Verification (evidence in `evidence/deployment/`)
 | Check | Result |
 |---|---|
-| `node scripts/smoke-prod.mjs` (health, readiness, guest flow, live radar, DNA/lens/funding/orbit/shadow, preview→confirm→receipt, replay/cross-user refusal, voice confirm refusal, 401/403, CORS, diagnostics, 13 companion routes, security headers) | **34/34** (`api-smoke.json`) |
-| Playwright vs prod companion (`playwright.prod.config.ts`, 8 tests) | **8/8** (`playwright-prod-results.json`, `screens/`) |
+| `node scripts/smoke-prod.mjs` (health, `/health` keep-alive, readiness, guest flow, live radar, DNA/lens/funding/orbit/shadow, preview→confirm→receipt, replay/cross-user refusal, voice confirm refusal, 401/403, CORS, diagnostics, 13 companion routes, security headers) | **36/36** on 28 Nov after redeploy (`api-smoke.json`) |
+| Playwright vs prod companion (`playwright.prod.config.ts`, 13 tests incl. mocked-wallet connect + browser speech) | **12 passed, 1 skipped** (Mode D — no signer in public deploy) on 28 Nov (`playwright-prod-results.json`, `screens/`) |
 | CoinGecko Demo live tests (`tests/live/coingecko-demo.live.test.ts`, key-gated) | **pass** — ping, trending, cache, 30/30 verified mappings (TON listed as "Gram (prev. Toncoin)", same id), global, categories, coin, search, 7-day chart, attribution (`coingecko-demo-live.json`; key not in file) |
 
 ## Known operational limits

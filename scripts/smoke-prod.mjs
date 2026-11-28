@@ -12,6 +12,8 @@ async function j(path, init = {}, tok) {
   return { status: r.status, body, ms: Date.now() - t0, headers: r.headers }
 }
 const h = await j('/healthz'); check('healthz', h.status === 200 && h.body.ok, { status: h.status, ms: h.ms })
+const h2 = await j('/health'); check('health (keep-alive endpoint)', h2.status === 200 && h2.body.ok, { status: h2.status, ms: h2.ms })
+const dg0 = await j('/v1/diagnostics'); check('diagnostics: no signer key, persistence mode reported', dg0.body?.signer?.configured === false && !!dg0.body?.persistence?.mode, { signer: dg0.body?.signer, persistence: dg0.body?.persistence?.mode })
 const rd = await j('/readyz'); check('readyz (live HL meta)', rd.status === 200 && rd.body.ready && rd.body.markets > 100, { markets: rd.body?.markets, ageMs: Date.now() - rd.body?.marketTs })
 const g = await j('/v1/guest/session', { method: 'POST' }); const tok = g.body?.token
 check('guest session', g.status === 200 && tok && g.body.mode === 'guest', { status: g.status, labels: g.body?.labels })
