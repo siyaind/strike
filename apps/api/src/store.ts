@@ -23,7 +23,7 @@ export interface Session { tokenHash: string; userId: string; kind: 'browser' | 
 export interface Device { id: string; userId: string; name: string; pairedAt: number; revokedAt: number | null; lastSeen: number | null }
 export interface Receipt { id: string; proposalId: string; env: 'simulated' | 'testnet'; label: 'SIMULATED EXECUTION' | 'TESTNET EXECUTION'; coin: string; side: 'buy' | 'sell'; status: string; requestedSz: string; filledSz: string; avgPx: string | null; oid: number | null; cloid: string | null; exchangeResponse: unknown; transitions: unknown[]; createdAt: number; reconciled: boolean; protection?: unknown }
 export interface AuditEvent { t: number; type: string; detail: string }
-export interface VoiceRecord { t: number; transcript: string; source: 'stt' | 'typed' | 'test'; intent: unknown; confidence: number | null }
+export interface VoiceRecord { t: number; transcript: string; source: 'stt' | 'typed' | 'test' | 'browser-stt'; intent: unknown; confidence: number | null }
 
 export class Store {
   users = new Map<string, User>()

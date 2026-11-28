@@ -1,7 +1,7 @@
 /** @type {import('next').NextConfig} */
 export default {
   reactStrictMode: true,
-  transpilePackages: ['@strike/visual-engine'],
+  transpilePackages: ['@strike/visual-engine', '@strike/voice-engine'],
   poweredByHeader: false,
   async headers() {
     return [{ source: '/(.*)', headers: [

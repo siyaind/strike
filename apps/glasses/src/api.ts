@@ -34,6 +34,6 @@ export class StrikeApi {
   sentinel = () => this.req<any>('GET', '/v1/sentinel/events')
   preview = (b: Record<string, unknown>) => this.req<any>('POST', '/v1/trade/preview', b)
   confirm = (proposalId: string, confirmToken: string) => this.req<any>('POST', '/v1/trade/confirm', { proposalId, confirmToken })
-  voice = (text: string, context: { coin: string | null; screen: string }, source = 'stt') => this.req<any>('POST', '/v1/voice/command', { text, context, source })
+  voice = (text: string, context: { coin: string | null; screen: string }, source = 'stt', confidence: number | null = null) => this.req<any>('POST', '/v1/voice/command', { text, context, source, confidence })
   transcribe = (pcmBase64: string) => this.req<any>('POST', '/v1/voice/transcribe', { pcmBase64 })
 }

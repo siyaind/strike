@@ -187,12 +187,22 @@ export class Controller {
   private async listen() {
     this.data.voice = { phase: 'listening' }; await this.render()
     const pcm = this.opts.voice ? await this.opts.voice.record(5000) : null
-    if (!pcm) { this.data.voice = { phase: 'unavailable', message: 'MICROPHONE NOT AVAILABLE ON THIS DEVICE/SIMULATOR' }; return }
+    if (!pcm) { this.data.voice = { phase: 'unavailable', message: 'NO G2 MIC HERE - SPEAK OR TYPE ON PHONE' }; return }
     let b64 = ''; for (let i = 0; i < pcm.length; i += 0x8000) b64 += String.fromCharCode(...pcm.subarray(i, i + 0x8000))
     const tr = await this.api.transcribe(btoa(b64))
-    if (!tr.text) { this.data.voice = { phase: 'unavailable', message: tr.message ?? 'SPEECH-TO-TEXT NOT CONFIGURED' }; return }
+    if (!tr.text) { this.data.voice = { phase: 'unavailable', message: 'SERVER STT OFF - SPEAK OR TYPE ON PHONE' }; return }
     const r = await this.api.voice(tr.text, { coin: this.s.coin, screen: this.s.stack[this.s.stack.length - 1] ?? 'hub' })
     this.data.voice = { phase: 'review', transcript: tr.text, intent: r.intent, note: r.note }
+  }
+
+  /** Phone-side transcript (browser Web Speech API or typed). Only parses + shows the intent for review —
+   *  it never confirms; execution still needs the dedicated preview → CONFIRM tap. */
+  async voiceText(text: string, source: 'browser-stt' | 'typed', confidence: number | null = null) {
+    const t = text.trim(); if (!t) return
+    if (this.s.screen !== 'voice') this.go('voice')
+    const r = await this.api.voice(t, { coin: this.s.coin, screen: this.s.stack[this.s.stack.length - 1] ?? 'hub' }, source, confidence)
+    this.data.voice = { phase: 'review', transcript: t, intent: r.intent, note: r.note, source }
+    await this.render()
   }
 
   // ───────────────────────── views ─────────────────────────

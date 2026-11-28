@@ -88,3 +88,18 @@ describe('G2 controller (vertical slice) against API + recorded live fixtures', 
     const v = await r.press('tap'); expect(r.ctl.s.screen).toBe('voice'); expect(v.frame.litCount()).toBeGreaterThan(10); expect(r.ctl.data.voice.phase).toBe('unavailable')
   })
 })
+
+describe('phone-side voice (Web Speech / typed)', () => {
+  it('shows the parsed intent for review on the glasses and never confirms', async () => {
+    const r = await rig()
+    await r.press('tap') // guest demo
+    await r.ctl.voiceText('confirm the order', 'browser-stt', 0.9)
+    const v = r.views[r.views.length - 1]!
+    expect(r.ctl.s.screen).toBe('voice')
+    expect(r.ctl.data.voice).toMatchObject({ phase: 'review', source: 'browser-stt', intent: { type: 'confirm-refused' } })
+    expect(r.ctl.data.receipt).toBeFalsy()
+    assertG2Safe(v)
+    await r.ctl.voiceText('what happens if BTC falls five percent', 'typed')
+    expect(r.ctl.data.voice.intent).toMatchObject({ type: 'scenario', coin: 'BTC' })
+  })
+})
